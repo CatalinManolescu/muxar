@@ -1,0 +1,66 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "MUXar",
+        "description": "Musical UX Smart Enhancer API",
+        "version": "0.0.1"
+    },
+    "host": "api.wade-muxar.ro",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/",
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "paths": {
+        "/search": {
+            "get": {
+                "summary": "Search for an item",
+                "description": "catalog information about artists, albums, tracks or playlists that match a keyword string.\n",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "The search query's keywords (and optional field filters and operators), for example `q=roadhouse%20blues`.  \n\n**Encoding spaces**  \nEncode spaces with the hex code %20 or +.\n\n**Keyword matching**  \nMatching of search keywords is not case-sensitive. (Operators, however, should be specified in uppercase.)\n\nKeywords will be matched in any order unless surrounded by double quotation marks: `q=roadhouse&20blues` will match both \"Blues Roadhouse\" and \"Roadhouse of the Blues\" while q=\"roadhouse&20blues\" will match \"My Roadhouse Blues\" but not \"Roadhouse of the Blues\".\n\nSearching for playlists will return results where the query keyword(s) match any part of the playlist's name or description. Only popular public playlists are returned.\n"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "A comma-separated list of item types to search across. Valid type are: _album_, _artist_, _playlist_, and _track_ .\n\nSearch results will include hits from all the specified item types; for example `q=name:abacab&type=album,track` will return both albums and tracks with \"abacab\" in their name.\n"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
