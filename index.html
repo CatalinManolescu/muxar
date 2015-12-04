@@ -25,13 +25,81 @@
 <p>Musical UX Smart Enhancer</p>
 
 <h2>
-<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+<a id="application-architecture" class="anchor" href="#application-architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application architecture</h2>
 
-<p><a href="https://github.com/catalin-/muxar/wiki/Architecture">Architecture</a><br>
-<a href="https://github.com/catalin-/muxar/wiki/Diagrams">Diagrams</a><br>
-<a href="https://github.com/catalin-/muxar/wiki/External-services">External services</a><br>
-<a href="https://github.com/catalin-/muxar/wiki/API">API</a><br>
-<a href="https://github.com/catalin-/muxar/wiki/Biography-and-resources">Resources</a>  </p>
+<p><img src="https://raw.githubusercontent.com/catalin-/muxar/master/docs/general%20architecture.png" alt="">  </p>
+
+<h2>
+<a id="diagrams" class="anchor" href="#diagrams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagrams</h2>
+
+<h2>
+<a id="activity-diagram" class="anchor" href="#activity-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activity diagram</h2>
+
+<p><img src="https://raw.githubusercontent.com/catalin-/muxar/master/docs/diagrams/activity_diagram.png" alt="Activity diagram">  </p>
+
+<h2>
+<a id="external-services" class="anchor" href="#external-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>External services</h2>
+
+<p><strong>External services used to get media information:</strong></p>
+
+<ul>
+<li>
+<a href="https://developer.spotify.com/">Spotify</a><br>
+</li>
+<li><a href="https://musicbrainz.org/">MusicBrainz</a></li>
+<li>
+<a href="https://developer.seevl.fm">seevl.fm</a><br>
+</li>
+</ul>
+
+<h3>
+<a id="spotify" class="anchor" href="#spotify" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spotify</h3>
+
+<p><a href="https://developer.spotify.com/web-api/endpoint-reference/">API</a><br>
+<a href="https://developer.spotify.com/web-api/code-examples/#web-api-tutorial">API-TUTORIAL</a></p>
+
+<p><strong>Examples</strong><br>
+Get list of featured playlists: <a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">https://developer.spotify.com/web-api/get-list-featured-playlists/</a><br>
+Get list of new releases: <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a><br>
+Get a list of categories: <a href="https://developer.spotify.com/web-api/get-list-categories/">https://developer.spotify.com/web-api/get-list-categories/</a><br>
+Get a category's playlists: <a href="https://developer.spotify.com/web-api/get-categorys-playlists/">https://developer.spotify.com/web-api/get-categorys-playlists/</a>  </p>
+
+<h3>
+<a id="musicbrainz" class="anchor" href="#musicbrainz" aria-hidden="true"><span class="octicon octicon-link"></span></a>MusicBrainz</h3>
+
+<p><a href="https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2">XML API</a><br>
+<a href="https://musicbrainz.org/doc/Development/JSON_Web_Service">JSON API</a><br>
+<a href="https://musicbrainz.org/doc/MusicBrainz_Database/Schema">Database Scema</a>  </p>
+
+<p><strong>Examples</strong><br>
+Search indexs: artist, release, release-group, recording, work, label  </p>
+
+<p>Generic search:  http://musicbrainz.org/ws/2//?query=&lt;<a href="https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">lucene_query_syntax</a>&gt;</p>
+
+<ul>
+<li>Search Romanian releases <a href="http://musicbrainz.org/ws/2/release/?query=country:ro">http://musicbrainz.org/ws/2/release/?query=country:ro</a>
+</li>
+<li>Search areas <a href="http://musicbrainz.org/ws/2/area/?query=iasi">http://musicbrainz.org/ws/2/area/?query=iasi</a><br>
+</li>
+</ul>
+
+<h3>
+<a id="seevlfm" class="anchor" href="#seevlfm" aria-hidden="true"><span class="octicon octicon-link"></span></a>seevl.fm</h3>
+
+<p>seevl is a graph of music entities. Entities are identified by a unique URI (together with a short version, recorded as an ID), and can have different types, such as artist, record label, music genre, etc. They have different properties (influences, genres played, band members,etc.) and are inter-connected through relationships.  </p>
+
+<p><a href="https://developer.seevl.fm/docs">API</a>  </p>
+
+<p><strong>Examples</strong><br>
+100 entities playing punk-rock: <a href="http://data.seevl.fm/entities/?genre=BntvuZAy&amp;_maxres=100">http://data.seevl.fm/entities/?genre=BntvuZAy&amp;_maxres=100</a><br>
+All entities playing punk-rock and signed on Epitaph Records: <a href="http://data.seevl.fm/entities/?genre=BntvuZAy&amp;label=B3ZFtGrJ">http://data.seevl.fm/entities/?genre=BntvuZAy&amp;label=B3ZFtGrJ</a><br>
+Entities (artists) related to Social Distortion: <a href="http://data.seevl.fm/entities/RkMQZrfG/related">http://data.seevl.fm/entities/RkMQZrfG/related</a><br>
+Entities (groups) related to Glam-rock: <a href="http://data.seevl.fm/entities/JhMrUMw9/related">http://data.seevl.fm/entities/JhMrUMw9/related</a>  </p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p>...  </p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/catalin-/muxar">Muxar</a> is maintained by <a href="https://github.com/catalin-">catalin-</a>.</span>
