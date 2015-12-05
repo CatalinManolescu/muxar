@@ -3,7 +3,11 @@
     "info": {
         "title": "MUXar",
         "description": "Musical UX Smart Enhancer API",
-        "version": "0.0.1"
+        "version": "0.0.1",
+        "license": {
+            "name": ".",
+            "url": "."
+        }
     },
     "host": "api.wade-muxar.ro",
     "schemes": [
@@ -18,7 +22,7 @@
         "/search": {
             "get": {
                 "summary": "Search for an item",
-                "description": "catalog information about artists, albums, tracks or playlists that match a keyword string.\n",
+                "description": "Get catalog information about artists, albums, tracks or playlists that match a keyword string.\n",
                 "parameters": [
                     {
                         "name": "q",
@@ -47,6 +51,82 @@
                     }
                 }
             }
+        },
+        "/moods": {
+            "get": {
+                "summary": "Get all available moods",
+                "description": "Information about available moods, for further querying.\n",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/moods/{mood}": {
+            "get": {
+                "summary": "Get subcategories for moods",
+                "description": "Will return an enumeration of given mood's subcategories.",
+                "parameters": [
+                    {
+                        "name": "mood",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/moods/{mood}/{subMood}": {
+            "get": {
+                "summary": "Returns a list of playlists",
+                "description": "Return an enumeration of playlists that fit in the given subcategory.",
+                "parameters": [
+                    {
+                        "name": "mood",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "subMood",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -61,6 +141,21 @@
                     "type": "string"
                 }
             }
+        },
+        "Mood": {
+            "type": "object"
+        },
+        "Track": {
+            "type": "object"
+        },
+        "Album": {
+            "type": "object"
+        },
+        "Artist": {
+            "type": "object"
+        },
+        "Playlist": {
+            "type": "object"
         }
     }
 }
