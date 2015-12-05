@@ -1,3 +1,5 @@
+<meta name='keywords' content='wade, web, project, infoiasi'>
+
 # muxar
 _Musical UX Smart Enhancer_
 
