@@ -18,6 +18,14 @@
         "application/json",
         "application/xml"
     ],
+    "tags": [
+        {
+            "name": "search"
+        },
+        {
+            "name": "moods"
+        }
+    ],
     "paths": {
         "/search": {
             "get": {
