@@ -1,169 +1,181 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "MUXar",
-        "description": "Musical UX Smart Enhancer API",
-        "version": "0.0.1",
-        "license": {
-            "name": ".",
-            "url": "."
-        }
-    },
-    "host": "api.wade-muxar.ro",
-    "schemes": [
-        "https"
-    ],
-    "basePath": "/",
-    "produces": [
-        "application/json",
-        "application/xml"
-    ],
-    "tags": [
-        {
-            "name": "search"
-        },
-        {
-            "name": "moods"
-        }
-    ],
-    "paths": {
-        "/search": {
-            "get": {
-                "summary": "Search for an item",
-                "description": "Get catalog information about artists, albums, tracks or playlists that match a keyword string.\n",
-                "parameters": [
-                    {
-                        "name": "q",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "description": "The search query's keywords (and optional field filters and operators), for example `q=roadhouse%20blues`.  \n\n**Encoding spaces**  \nEncode spaces with the hex code %20 or +.\n\n**Keyword matching**  \nMatching of search keywords is not case-sensitive. (Operators, however, should be specified in uppercase.)\n\nKeywords will be matched in any order unless surrounded by double quotation marks: `q=roadhouse&20blues` will match both \"Blues Roadhouse\" and \"Roadhouse of the Blues\" while q=\"roadhouse&20blues\" will match \"My Roadhouse Blues\" but not \"Roadhouse of the Blues\".\n\nSearching for playlists will return results where the query keyword(s) match any part of the playlist's name or description. Only popular public playlists are returned.\n"
-                    },
-                    {
-                        "name": "type",
-                        "in": "query",
-                        "required": false,
-                        "type": "string",
-                        "description": "A comma-separated list of item types to search across. Valid type are: _album_, _artist_, _playlist_, and _track_ .\n\nSearch results will include hits from all the specified item types; for example `q=name:abacab&type=album,track` will return both albums and tracks with \"abacab\" in their name.\n"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/moods": {
-            "get": {
-                "summary": "Get all available moods",
-                "description": "Information about available moods, for further querying.\n",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/moods/{mood}": {
-            "get": {
-                "summary": "Get subcategories for moods",
-                "description": "Will return an enumeration of given mood's subcategories.",
-                "parameters": [
-                    {
-                        "name": "mood",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/moods/{mood}/{subMood}": {
-            "get": {
-                "summary": "Returns a list of playlists",
-                "description": "Return an enumeration of playlists that fit in the given subcategory.",
-                "parameters": [
-                    {
-                        "name": "mood",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "subMood",
-                        "in": "path",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "Error": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
-        },
-        "Mood": {
-            "type": "object"
-        },
-        "Track": {
-            "type": "object"
-        },
-        "Album": {
-            "type": "object"
-        },
-        "Artist": {
-            "type": "object"
-        },
-        "Playlist": {
-            "type": "object"
-        }
+  "swagger": "2.0",
+  "info": {
+    "title": "MUXar",
+    "description": "Musical UX Smart Enhancer API",
+    "version": "0.0.1",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
+  },
+  "host": "api.wade-muxar.ro",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "tags": [
+    {
+      "name": "search"
+    },
+    {
+      "name": "moods"
+    }
+  ],
+  "paths": {
+    "/search": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Search for an item",
+        "description": "Get catalog information about artists, albums, tracks or playlists that match a keyword string.\n",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The search query's keywords (and optional field filters and operators), for example `q=roadhouse%20blues`.  \n\n**Encoding spaces**  \nEncode spaces with the hex code %20 or +.\n\n**Keyword matching**  \nMatching of search keywords is not case-sensitive. (Operators, however, should be specified in uppercase.)\n\nKeywords will be matched in any order unless surrounded by double quotation marks: `q=roadhouse&20blues` will match both \"Blues Roadhouse\" and \"Roadhouse of the Blues\" while q=\"roadhouse&20blues\" will match \"My Roadhouse Blues\" but not \"Roadhouse of the Blues\".\n\nSearching for playlists will return results where the query keyword(s) match any part of the playlist's name or description. Only popular public playlists are returned.\n"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "A comma-separated list of item types to search across. Valid type are: _album_, _artist_, _playlist_, and _track_ .\n\n\nSearch results will include hits from all the specified item types; for example `q=name:abacab&type=album,track` will return both albums and tracks with \"abacab\" in their name.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/moods": {
+      "get": {
+        "tags": [
+          "moods"
+        ],
+        "summary": "Get all available moods",
+        "description": "Information about available moods, for further querying.\n",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/moods/{mood}": {
+      "get": {
+        "tags": [
+          "moods"
+        ],
+        "summary": "Get subcategories for moods",
+        "description": "Will return an enumeration of given mood's subcategories.",
+        "parameters": [
+          {
+            "name": "mood",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/moods/{mood}/{subMood}": {
+      "get": {
+        "tags": [
+          "moods"
+        ],
+        "summary": "Returns a list of playlists",
+        "description": "Return an enumeration of playlists that fit in the given subcategory.",
+        "parameters": [
+          {
+            "name": "mood",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "subMood",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Mood": {
+      "type": "object"
+    },
+    "Track": {
+      "type": "object"
+    },
+    "Album": {
+      "type": "object"
+    },
+    "Artist": {
+      "type": "object"
+    },
+    "Playlist": {
+      "type": "object"
+    }
+  }
 }
