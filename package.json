@@ -1,0 +1,23 @@
+{
+  "name": "muxar",
+  "private": true,
+  "version": "0.0.1",
+  "description": "muxar",
+  "repository": "https://github.com/catalin-/muxar",
+  "license": "Apache License, Version 2.0",
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=4.2.6"
+  },
+  "config": {
+    "web-port": 80
+  },
+  "scripts": {
+    "postinstall": "",
+    "prestart": "npm install",
+    "start-web": "http-server -a localhost -p 80 -c-1 ./web/public"
+  }
+}
