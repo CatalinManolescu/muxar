@@ -68,7 +68,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyEntityContext.cs">
+    <Compile Include="Models\IAlbum.cs" />
+    <Compile Include="Models\IArtist.cs" />
+    <Compile Include="Models\IMember.cs" />
+    <Compile Include="Models\IPlaylist.cs" />
+    <Compile Include="Models\ISong.cs" />
+    <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\MyEntityContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyEntityContext.tt</DependentUpon>
@@ -80,7 +86,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MyEntityContext.tt">
+    <Content Include="Models\MyEntityContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MyEntityContext.cs</LastGenOutput>
     </Content>
