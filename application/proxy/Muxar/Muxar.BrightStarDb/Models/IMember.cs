@@ -9,6 +9,8 @@ namespace Muxar.BrightStarDb.Models
         string FirstName { get; set; }
         string LastName { get; set; }
         string StageName { get; set; }
+        [PropertyType("foaf:gender")]
+        string Gender { get; set; }
         IArtist Artist { get; set; }
     }
 }

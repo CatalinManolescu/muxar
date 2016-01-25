@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using BrightstarDB.EntityFramework;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -34,3 +34,11 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NamespaceDeclaration("foaf", "http://xmlns.com/foaf/0.1/")]
+[assembly: NamespaceDeclaration("schema", "http://schema.org/")]
+[assembly: NamespaceDeclaration("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")]
+[assembly: NamespaceDeclaration("gr", "http://purl.org/goodrelations/v1#")]
+[assembly: NamespaceDeclaration("owl", "http://www.w3.org/2002/07/owl#")]
+[assembly: NamespaceDeclaration("dbpedia-owl", "http://dbpedia.org/ontology/")]
+[assembly: NamespaceDeclaration("dbpprop", "http://dbpedia.org/property/")]
+[assembly: NamespaceDeclaration("wdrs", "http://www.w3.org/2007/05/powder-s#")]

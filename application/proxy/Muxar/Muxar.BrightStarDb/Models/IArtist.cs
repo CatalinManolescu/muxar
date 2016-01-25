@@ -4,7 +4,7 @@ using BrightstarDB.EntityFramework;
 
 namespace Muxar.BrightStarDb.Models
 {
-    [Entity]
+    [Entity("dbpedia-owl:MusicalArtist")]
     public interface IArtist
     {
         string Id { get; }

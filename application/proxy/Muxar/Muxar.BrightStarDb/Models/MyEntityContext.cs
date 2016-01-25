@@ -283,6 +283,12 @@ namespace Muxar.BrightStarDb.Models
             		set { SetRelatedProperty("StageName", value); }
     	}
     
+    	public System.String Gender
+    	{
+            		get { return GetRelatedProperty<System.String>("Gender"); }
+            		set { SetRelatedProperty("Gender", value); }
+    	}
+    
     	public Muxar.BrightStarDb.Models.IArtist Artist
     	{
             get { return GetRelatedObject<Muxar.BrightStarDb.Models.IArtist>("Artist"); }
@@ -360,6 +366,12 @@ namespace Muxar.BrightStarDb.Models
             get { return GetRelatedObject<Muxar.BrightStarDb.Models.IAlbum>("Album"); }
             set { SetRelatedObject<Muxar.BrightStarDb.Models.IAlbum>("Album", value); }
     	}
+    
+    	public System.String Thumbnail
+    	{
+            		get { return GetRelatedProperty<System.String>("Thumbnail"); }
+            		set { SetRelatedProperty("Thumbnail", value); }
+    	}
     	#endregion
     }
 }
@@ -390,6 +402,12 @@ namespace Muxar.BrightStarDb.Models
     	{
             		get { return GetRelatedProperty<System.String>("Email"); }
             		set { SetRelatedProperty("Email", value); }
+    	}
+    
+    	public System.String Gender
+    	{
+            		get { return GetRelatedProperty<System.String>("Gender"); }
+            		set { SetRelatedProperty("Gender", value); }
     	}
     
     	public System.String Country

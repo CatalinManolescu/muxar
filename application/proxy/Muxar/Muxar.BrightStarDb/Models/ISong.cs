@@ -11,5 +11,7 @@ namespace Muxar.BrightStarDb.Models
         IArtist Artist { get; set; }
         ICollection<IPlaylist> Playlists { get; set; }
         IAlbum Album { get; set; }
+        [PropertyType("dbpedia-owl:thumbnail")]
+        string Thumbnail { get; set; }
     }
 }
