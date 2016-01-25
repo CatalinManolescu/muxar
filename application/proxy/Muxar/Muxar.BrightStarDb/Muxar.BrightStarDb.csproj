@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Endpoints\DbpediaEndpoint.cs" />
     <Compile Include="Models\IAlbum.cs" />
     <Compile Include="Models\IArtist.cs" />
     <Compile Include="Models\IMember.cs" />
