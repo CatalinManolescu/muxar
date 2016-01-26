@@ -13,22 +13,22 @@ var config = {
 	port: 9999,
 	devBaseUrl: 'http://localhost',
 	paths: {
-		html: './src/*.html',
-		js: './src/**/*.js',
-		images: './src/images/*',
+		html: './web/src/*.html',
+		js: './web/src/**/*.js',
+		images: './web/src/images/*',
 		css: [
       		'node_modules/bootstrap/dist/css/bootstrap.min.css',
       		'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
     	],
-    	myCss : './src/components/common/*.css',
-		dist: './dist',
-		mainJs: './src/main.js'
+    	myCss : './web/src/components/common/*.css',
+		dist: './web/public',
+		mainJs: './web/src/main.js'
 	}
-}
+};
 
 gulp.task('connect', function() {
 	connect.server({
-		root: ['dist'],
+		root: ['web/public'],
 		port: config.port,
 		base: config.devBaseUrl,
 		livereload: true
@@ -36,7 +36,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('open', ['connect'], function() {
-	gulp.src('dist/index.html')
+	gulp.src('web/public/index.html')
 		.pipe(open('', { url: config.devBaseUrl + ':' + config.port + '/'}));
 });
 
