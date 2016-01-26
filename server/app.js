@@ -48,14 +48,14 @@ server.use(function(req, res, next){
         console.log('check auth');
         return authenticationManager.authenticationProvider(req, res, next);        
     } else {
-        res.send(200);
+        //res.send(200);
         return next();
     }
 });
 
 server.get({name: 'bamby', path: '/api/bamby'}, function(req, res, next){
     res.send('OK.');
-    next();
+    return next();
 });
 
 server.get({name: 'bambe', path: '/api/bambe'}, function(req, res, next){
