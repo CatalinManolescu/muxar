@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
 using Muxar.Helpers;
 
 namespace Muxar.Controllers
 {
+    /// <summary>
+    /// Here you can get all artists-related queries
+    /// </summary>
     public class ArtistsController : BaseApiController
     {
         private readonly DbpediaEndpoint dbpediaEndpoint;
@@ -15,6 +17,11 @@ namespace Muxar.Controllers
             dbpediaEndpoint = new DbpediaEndpoint();
         }
 
+        /// <summary>
+        /// Get artsits by providing a list of strings - genres
+        /// </summary>
+        /// <param name="genresList">genresList - Collection of string</param>
+        /// <returns>a list of strings representing artists' names</returns>
         [HttpGet]
         [Route("api/Artists/GetByGenres")]
         public IHttpActionResult GetByGenres(IList<string> genresList)
@@ -25,9 +32,14 @@ namespace Muxar.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// search artists based on their name
+        /// </summary>
+        /// <param name="artistLabel"></param>
+        /// <returns>a list of strings representing artists' names</returns>
         [HttpGet]
         [Route("api/Artists/Search")]
-        public IHttpActionResult Get(string artistLabel)
+        public IHttpActionResult Search(string artistLabel)
         {
             if (Validators.StringInputValidator(artistLabel))
                 return BadRequest(string.Format(Resources.input, "artistLabel"));

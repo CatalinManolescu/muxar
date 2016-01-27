@@ -13,6 +13,11 @@ namespace Muxar.Controllers
             dbpediaEndpoint = new DbpediaEndpoint();
         }
 
+        /// <summary>
+        /// get genres of an artist
+        /// </summary>
+        /// <param name="artistLabel">string containing artist property "label"</param>
+        /// <returns>collection of genres as strings</returns>
         public IHttpActionResult GetByArtist(string artistLabel)
         {
             if (Validators.StringInputValidator(artistLabel))
