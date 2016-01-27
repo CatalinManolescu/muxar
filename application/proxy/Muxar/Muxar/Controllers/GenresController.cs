@@ -1,11 +1,12 @@
 ﻿using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
+using Muxar.Helpers;
 
 namespace Muxar.Controllers
 {
-    public class GenresController : ApiController
+    public class GenresController : BaseApiController
     {
-        private DbpediaEndpoint dbpediaEndpoint;
+        private readonly DbpediaEndpoint dbpediaEndpoint;
 
         public GenresController()
         {
@@ -14,8 +15,12 @@ namespace Muxar.Controllers
 
         public IHttpActionResult GetByArtist(string artistLabel)
         {
+            if (Validators.StringInputValidator(artistLabel))
+                return BadRequest(string.Format(Resources.input, "artistLabel"));
+
             var result = dbpediaEndpoint.GetGenresByArtist(artistLabel);
-            return Ok(result);
+
+            return result == null ? (IHttpActionResult) InternalServerError() : Ok(result);
         }
     }
 }

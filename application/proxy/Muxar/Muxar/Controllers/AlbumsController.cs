@@ -2,7 +2,7 @@
 
 namespace Muxar.Controllers
 {
-    public class AlbumsController : ApiController
+    public class AlbumsController : BaseApiController
     {
     }
 }

@@ -7,12 +7,11 @@ namespace Muxar.BrightStarDb.Endpoints
 {
     public class DbpediaEndpoint
     {
-        private readonly Uri sparqlUri;
         private readonly SparqlRemoteEndpoint sparqlRemoteEndpoint;
 
         public DbpediaEndpoint()
         {
-            sparqlUri = new Uri("http://dbpedia.org/sparql");
+            var sparqlUri = new Uri("http://dbpedia.org/sparql");
             sparqlRemoteEndpoint = new SparqlRemoteEndpoint(sparqlUri);
         }
 

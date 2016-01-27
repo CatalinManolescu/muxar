@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
+using Muxar.Helpers;
 
 namespace Muxar.Controllers
 {
-    public class ArtistsController : ApiController
+    public class ArtistsController : BaseApiController
     {
-        private DbpediaEndpoint dbpediaEndpoint;
+        private readonly DbpediaEndpoint dbpediaEndpoint;
 
         public ArtistsController()
         {
@@ -15,15 +16,23 @@ namespace Muxar.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetByLabel(string artistLabel)
+        [Route("api/Artists/GetByGenres")]
+        public IHttpActionResult GetByGenres(IList<string> genresList)
         {
-            var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
+            if (genresList == null) return BadRequest("genresList cannot be null");
+            if (!ModelState.IsValid) return ValidationError();
+            var result = dbpediaEndpoint.GetArtistsByGenres(genresList);
             return Ok(result);
         }
 
-        public IHttpActionResult GetByGenres(IList<string> genresList)
+        [HttpGet]
+        [Route("api/Artists/Search")]
+        public IHttpActionResult Get(string artistLabel)
         {
-            var result = dbpediaEndpoint.GetArtistsByGenres(genresList);
+            if (Validators.StringInputValidator(artistLabel))
+                return BadRequest(string.Format(Resources.input, "artistLabel"));
+
+            var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
             return Ok(result);
         }
     }

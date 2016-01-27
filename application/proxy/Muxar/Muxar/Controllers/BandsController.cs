@@ -3,7 +3,7 @@ using Muxar.BrightStarDb.Endpoints;
 
 namespace Muxar.Controllers
 {
-    public class BandsController : ApiController
+    public class BandsController : BaseApiController
     {
         private DbpediaEndpoint dbpediaEndpoint;
 
@@ -11,13 +11,5 @@ namespace Muxar.Controllers
         {
             dbpediaEndpoint = new DbpediaEndpoint();
         }
-
-        [HttpGet]
-        public IHttpActionResult Get(string artistLabel)
-        {
-            var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
-            return Ok(result);
-        }
-
     }
 }

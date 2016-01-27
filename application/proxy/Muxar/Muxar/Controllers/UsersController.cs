@@ -2,7 +2,7 @@
 
 namespace Muxar.Controllers
 {
-    public class UsersController : ApiController
+    public class UsersController : BaseApiController
     {
     }
 }
