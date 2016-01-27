@@ -6,6 +6,7 @@ var restify = require('restify');
 fs = require('fs');
 
 var authenticationManager = require('./controllers/authenticationManager');
+var genreRoutes = require('./routes/genreRoutes');
 
 if(!String.prototype.startsWith){
     String.prototype.startsWith = function (str) {
@@ -53,6 +54,9 @@ server.use(function(req, res, next){
     }
 });
 
+server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
+
+/* test routes */
 server.get({name: 'bamby', path: '/api/bamby'}, function(req, res, next){
     res.send('OK.');
     return next();
