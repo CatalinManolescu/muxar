@@ -13,9 +13,9 @@ namespace Muxar.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string artistLabel)
         {
-            var result = dbpediaEndpoint.GetBandsWithName("Turner");
+            var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
             return Ok(result);
         }
 

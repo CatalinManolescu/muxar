@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="Controllers\BandsController.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

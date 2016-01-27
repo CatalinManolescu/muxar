@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VDS.RDF;
-using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 
 namespace Muxar.BrightStarDb.Endpoints
@@ -18,32 +16,74 @@ namespace Muxar.BrightStarDb.Endpoints
             sparqlRemoteEndpoint = new SparqlRemoteEndpoint(sparqlUri);
         }
 
-        public void Test()
-        {
-            var query = "DESCRIBE ?person WHERE {?person a <http://dbpedia.org/ontology/Person>} LIMIT 1";
-
-            //Get the result
-            var graph = sparqlRemoteEndpoint.QueryWithResultGraph(query);
-
-            IGraph g = new Graph();
-            UriLoader.Load(g, new Uri("http://dbpedia.org/resource/Barack_Obama"));
-        }
-
-        public List<string> GetBandsWithName(string name)
+        public List<string> GetArtistsWithName(string name)
         {
             var query = @"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>        
-                        prefix dbo:  <http://dbpedia.org/ontology/> 
-                        SELECT distinct ?artist
+                        PREFIX dbo:  <http://dbpedia.org/ontology/> 
+                        PREFIX schema:    <http://schema.org/>
+                        SELECT distinct ?artist ?artistName
                         WHERE {
-                            ?artist a dbo:MusicalArtist .
-                        ?artist rdfs:label ?artistName.
-
-                        Filter(contains(lcase(str(?artistName)), '" + name + @"')) .
+                        VALUES ?type { schema:MusicGroup dbo:MusicalArtist }
+                            ?artist a ?type .
+                            ?artist rdfs:label ?artistName.
+                        FILTER(CONTAINS(LCASE(STR(?artistName)), '" + name.ToLower() + @"')) .
+                        FILTER(lang(?artistName) = 'en')
                         }
-                        LIMIT 20";
+                        GROUP BY ?artist ?artistName
+                        ORDER BY ?artistName
+                        LIMIT 30";
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
 
-            var results = resultSet.Results.Select(x => x.Value("artist").ToString()).ToList();
+            var results = resultSet.Results.Select(x => x.Value("artistName").ToString().Replace("@en", "")).ToList();
+
+            return results;
+        }
+
+        public List<string> GetArtistsByGenres(IList<string> genres)
+        {
+            var genreFilter = genres.Aggregate("",
+                (current, genre) => current + ("contains(lcase(str(?g)), '" + genre.ToLower() + "') ||"));
+            genreFilter = genreFilter.Substring(0, genreFilter.LastIndexOf("||", StringComparison.Ordinal));
+
+            var query = @"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>        
+                        PREFIX dbo:  <http://dbpedia.org/ontology/> 
+                        PREFIX sco:    <http://schema.org/>
+                        SELECT DISTINCT ?artist ?artistName min(?g)
+                        WHERE {
+                        VALUES ?type { sco:MusicGroup dbo:MusicalArtist }
+                            ?artist a ?type .
+                            ?artist rdfs:label ?artistName.
+                            ?artist dbo:genre ?genre .
+                            ?genre rdfs:label ?g .
+
+                        FILTER (lang(?artistName) = 'en') .
+                        FILTER(" + genreFilter + @")
+                        }
+                                GROUP BY ?artist? artistName
+                        ORDER BY ?artistName
+                        LIMIT 100";
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+
+            var results = resultSet.Results.Select(x => x.Value("artistName").ToString().Replace("@en", "")).ToList();
+
+            return results;
+        }
+
+        public List<string> GetGenresByArtist(string artistName)
+        {
+            var query = @"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>        
+                        PREFIX dbo:  <http://dbpedia.org/ontology/> 
+                        SELECT DISTINCT ?genreLabel
+                        WHERE {
+                        ?resource dbo:genre ?genre.
+                        ?resource rdfs:label '"+artistName + @"'@en.
+                        ?genre rdfs:label? genreLabel
+                        FILTER(lang(?genreLabel) = 'en')
+                        }
+                        LIMIT 100";
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+
+            var results = resultSet.Results.Select(x => x.Value("genreLabel").ToString().Replace("@en", "")).ToList();
 
             return results;
         }
