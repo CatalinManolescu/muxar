@@ -22,9 +22,9 @@ namespace Muxar.Controllers
         /// </summary>
         /// <param name="genresList">genresList - Collection of string</param>
         /// <returns>a list of strings representing artists' names</returns>
-        [HttpGet]
-        [Route("api/Artists/GetByGenres")]
-        public IHttpActionResult GetByGenres(IList<string> genresList)
+        [HttpPost]
+        [Route("api/Artists/SearchByGenres")]
+        public IHttpActionResult SearchByGenres(IList<string> genresList)
         {
             if (genresList == null) return BadRequest("genresList cannot be null");
             if (!ModelState.IsValid) return ValidationError();

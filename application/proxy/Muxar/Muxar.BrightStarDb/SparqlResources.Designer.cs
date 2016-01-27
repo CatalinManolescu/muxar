@@ -111,7 +111,7 @@ namespace Muxar.BrightStarDb {
         ///FILTER (lang(?artistName) = &apos;en&apos;) .
         ///FILTER({0})
         ///}}
-        ///        GROUP BY ?artist? artistName
+        ///        GROUP BY ?artist ?artistName
         ///ORDER BY ?artistName
         ///LIMIT 100.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Muxar.BrightStarDb {
         ///WHERE {{
         ///?resource dbo:genre ?genre.
         ///?resource rdfs:label &apos;{0}&apos;@en.
-        ///?genre rdfs:label? genreLabel
+        ///?genre rdfs:label ?genreLabel
         ///FILTER(lang(?genreLabel) = &apos;en&apos;)
         ///}}
         ///LIMIT 100.

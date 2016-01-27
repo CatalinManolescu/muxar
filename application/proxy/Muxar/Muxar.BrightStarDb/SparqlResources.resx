@@ -144,7 +144,7 @@ VALUES ?type {{ sco:MusicGroup dbo:MusicalArtist }}
 FILTER (lang(?artistName) = 'en') .
 FILTER({0})
 }}
-        GROUP BY ?artist? artistName
+        GROUP BY ?artist ?artistName
 ORDER BY ?artistName
 LIMIT 100</value>
   </data>
@@ -155,7 +155,7 @@ SELECT DISTINCT ?genreLabel
 WHERE {{
 ?resource dbo:genre ?genre.
 ?resource rdfs:label '{0}'@en.
-?genre rdfs:label? genreLabel
+?genre rdfs:label ?genreLabel
 FILTER(lang(?genreLabel) = 'en')
 }}
 LIMIT 100</value>

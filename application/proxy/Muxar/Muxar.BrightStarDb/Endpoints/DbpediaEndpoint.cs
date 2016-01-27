@@ -36,7 +36,7 @@ namespace Muxar.BrightStarDb.Endpoints
         {
             var genreFilter = DbpediaHelper.GenerateGenreFilter(genres);
 
-            var query = string.Format(SparqlResources.SearchArtistsByLabel, genreFilter);
+            var query = string.Format(SparqlResources.GetArtistsByGenre, genreFilter);
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
             var results =
                 resultSet.Results.Select(
