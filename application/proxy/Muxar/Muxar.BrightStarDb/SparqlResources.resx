@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArtistName" xml:space="preserve">
+    <value>artistName</value>
+  </data>
   <data name="ContainsPattern" xml:space="preserve">
     <value>contains(lcase(str(?g)), '{0}') ||</value>
+  </data>
+  <data name="EnLangQualifier" xml:space="preserve">
+    <value>@en</value>
+  </data>
+  <data name="GenreLabel" xml:space="preserve">
+    <value>genreLabel</value>
   </data>
   <data name="GetArtistsByGenre" xml:space="preserve">
     <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        

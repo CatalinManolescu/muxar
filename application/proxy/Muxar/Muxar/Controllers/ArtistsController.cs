@@ -18,7 +18,7 @@ namespace Muxar.Controllers
         }
 
         /// <summary>
-        /// Get artsits by providing a list of strings - genres
+        /// Get artists by providing a collection of strings - genres
         /// </summary>
         /// <param name="genresList">genresList - Collection of string</param>
         /// <returns>a list of strings representing artists' names</returns>

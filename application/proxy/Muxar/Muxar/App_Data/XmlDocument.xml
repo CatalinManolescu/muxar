@@ -488,7 +488,7 @@
         </member>
         <member name="M:Muxar.Controllers.ArtistsController.GetByGenres(System.Collections.Generic.IList{System.String})">
             <summary>
-            Get artsits by providing a list of strings - genres
+            Get artists by providing a collection of strings - genres
             </summary>
             <param name="genresList">genresList - Collection of string</param>
             <returns>a list of strings representing artists' names</returns>

@@ -22,14 +22,14 @@ namespace Muxar.BrightStarDb {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SparqlQueryResources {
+    internal class SparqlResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SparqlQueryResources() {
+        internal SparqlResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Muxar.BrightStarDb {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Muxar.BrightStarDb.SparqlQueryResources", typeof(SparqlQueryResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Muxar.BrightStarDb.SparqlResources", typeof(SparqlResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,38 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to artistName.
+        /// </summary>
+        internal static string ArtistName {
+            get {
+                return ResourceManager.GetString("ArtistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to contains(lcase(str(?g)), &apos;{0}&apos;) ||.
         /// </summary>
         internal static string ContainsPattern {
             get {
                 return ResourceManager.GetString("ContainsPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @en.
+        /// </summary>
+        internal static string EnLangQualifier {
+            get {
+                return ResourceManager.GetString("EnLangQualifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to genreLabel.
+        /// </summary>
+        internal static string GenreLabel {
+            get {
+                return ResourceManager.GetString("GenreLabel", resourceCulture);
             }
         }
         

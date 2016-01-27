@@ -1,49 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Muxar.BrightStarDb.Helpers;
 using VDS.RDF.Query;
+using System.Configuration;
 
 namespace Muxar.BrightStarDb.Endpoints
 {
     public class DbpediaEndpoint
     {
+        private const string DbpediaEndpointUri = "DbpediaEndpointUri";
         private readonly SparqlRemoteEndpoint sparqlRemoteEndpoint;
 
         public DbpediaEndpoint()
         {
-            var sparqlUri = new Uri("http://dbpedia.org/sparql");
+            var sparqlUri = new Uri(ConfigurationManager.AppSettings[DbpediaEndpointUri]);
             sparqlRemoteEndpoint = new SparqlRemoteEndpoint(sparqlUri);
         }
 
-        public List<string> GetArtistsWithName(string name)
+        public IList<string> GetArtistsWithName(string name)
         {
-            var query = string.Format(SparqlQueryResources.SearchArtistsByLabel, name.ToLower());
+            var query = string.Format(SparqlResources.SearchArtistsByLabel, name.ToLower());
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
-            var results = resultSet.Results.Select(x => x.Value("artistName").ToString().Replace("@en", "")).ToList();
+            var results =
+                resultSet.Results.Select(
+                    x =>
+                        x.Value(SparqlResources.ArtistName)
+                            .ToString()
+                            .Replace(SparqlResources.EnLangQualifier, string.Empty)).ToList();
 
             return results;
         }
 
-        public List<string> GetArtistsByGenres(IList<string> genres)
+        public IList<string> GetArtistsByGenres(IList<string> genres)
         {
-            var genreFilter = genres.Aggregate(string.Empty,
-                (current, genre) => current + string.Format(SparqlQueryResources.ContainsPattern, genre.ToLower()));
-            genreFilter = genreFilter.Substring(0, genreFilter.LastIndexOf("||", StringComparison.Ordinal));
+            var genreFilter = DbpediaHelper.GenerateGenreFilter(genres);
 
-            var query = string.Format(SparqlQueryResources.SearchArtistsByLabel, genreFilter);
+            var query = string.Format(SparqlResources.SearchArtistsByLabel, genreFilter);
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
-
-            var results = resultSet.Results.Select(x => x.Value("artistName").ToString().Replace("@en", "")).ToList();
+            var results =
+                resultSet.Results.Select(
+                    x =>
+                        x.Value(SparqlResources.ArtistName)
+                            .ToString()
+                            .Replace(SparqlResources.EnLangQualifier, string.Empty)).ToList();
 
             return results;
         }
 
-        public List<string> GetGenresByArtist(string artistName)
+        public IList<string> GetGenresByArtist(string artistName)
         {
-            var query = string.Format(SparqlQueryResources.GetGenresByArtist, artistName);
+            var query = string.Format(SparqlResources.GetGenresByArtist, artistName);
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
-
-            var results = resultSet.Results.Select(x => x.Value("genreLabel").ToString().Replace("@en", "")).ToList();
+            var results =
+                resultSet.Results.Select(
+                    x =>
+                        x.Value(SparqlResources.GenreLabel)
+                            .ToString()
+                            .Replace(SparqlResources.EnLangQualifier, string.Empty)).ToList();
 
             return results;
         }
