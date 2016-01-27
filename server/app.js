@@ -4,9 +4,12 @@
  */
 var restify = require('restify');
 fs = require('fs');
-
+var RDFLocal = require('./clients/RDFLocal');
 var authenticationManager = require('./controllers/authenticationManager');
+
+var rdfRoutes = require('./routes/rdfRoutes');
 var genreRoutes = require('./routes/genreRoutes');
+
 
 if(!String.prototype.startsWith){
     String.prototype.startsWith = function (str) {
@@ -32,8 +35,6 @@ fs.readdirSync(routes_path).forEach(function (file) {
     }
 });
 
-console.log(routes);
-
 var server = restify.createServer({
     name: config.applicationName
 });
@@ -43,10 +44,7 @@ server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
 server.use(function(req, res, next){
-    console.log('request[\'headers\'');
-    console.log(req.headers);
     if (req.url.startsWith('/api')) {
-        console.log('check auth');
         return authenticationManager.authenticationProvider(req, res, next);        
     } else {
         //res.send(200);
@@ -54,7 +52,12 @@ server.use(function(req, res, next){
     }
 });
 
+
 server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
+
+server.get({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
+server.post({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
+server.get({name: 'rdfinit', path: '/api/rdf/init'}, rdfRoutes.initRDF);
 
 /* test routes */
 server.get({name: 'bamby', path: '/api/bamby'}, function(req, res, next){

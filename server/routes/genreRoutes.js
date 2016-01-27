@@ -3,8 +3,8 @@
  * @author Catalin Manolescu <cc.manolescu@gmail.com>
  */
 
-var sparql = require('sparql');
-var client = new sparql.Client('http://dbpedia.org/sparql');
+var RDFLocal = require('./../clients/RDFLocal');
+//var RDFLocal = require('./../clients/dbpediaRDFClient');//require('./../clients/RDFLocal');
 
 var getObjectsFromResult = function(bindings) {
     var length = bindings.length;
@@ -31,9 +31,10 @@ var getAllGenres = function(req, res, next) {
     'where { '+
     '    ?genre a <http://dbpedia.org/ontology/MusicGenre>. ' +
     '    ?genre rdfs:name ?genreLabel ' +
-    '    FILTER (lang(?genreLabel)="en")} ' +
-    'LIMIT 100';
-    client.query(query, function(err, resp){
+    //'    FILTER (lang(?genreLabel)="en") ' +
+    '} LIMIT 100';
+    
+    RDFLocal.search.query(query).execute(function(err, resp){
         if (err) {
             res.send(500,{error:err});
         } else {
