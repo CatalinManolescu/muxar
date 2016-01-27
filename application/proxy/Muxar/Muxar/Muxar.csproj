@@ -173,6 +173,7 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Helpers\Validators.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
