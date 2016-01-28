@@ -61,6 +61,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to artist.
+        /// </summary>
+        internal static string Artist {
+            get {
+                return ResourceManager.GetString("Artist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to artistName.
         /// </summary>
         internal static string ArtistName {
@@ -140,6 +149,37 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to homepage.
+        /// </summary>
+        internal static string Homepage {
+            get {
+                return ResourceManager.GetString("Homepage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
+        ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+        ///PREFIX schema:    &lt;http://schema.org/&gt;
+        ///SELECT distinct ?artist ?artistName ?wiki ?homepage ?thumbnail
+        ///WHERE {{
+        ///	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
+        ///	VALUES ?website {{ dbp:website foaf:homepage }}
+        ///		?artist a ?type .
+        ///		?artist rdfs:label ?artistName.
+        ///	OPTIONAL {{
+        ///		?artist ?website ?homepage .
+        ///		?artist foaf:isPrimaryTopicOf ?wiki .
+        ///		?artist dbo:thumbnail ?thumbnail
+        ///	}}        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SearchArtistByNameAndWebsite {
+            get {
+                return ResourceManager.GetString("SearchArtistByNameAndWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
         ///                        PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///                        PREFIX schema:    &lt;http://schema.org/&gt;
@@ -153,6 +193,24 @@ namespace Muxar.BrightStarDb {
         internal static string SearchArtistsByLabel {
             get {
                 return ResourceManager.GetString("SearchArtistsByLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thumbnail.
+        /// </summary>
+        internal static string Thumbnail {
+            get {
+                return ResourceManager.GetString("Thumbnail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wiki.
+        /// </summary>
+        internal static string Wiki {
+            get {
+                return ResourceManager.GetString("Wiki", resourceCulture);
             }
         }
     }

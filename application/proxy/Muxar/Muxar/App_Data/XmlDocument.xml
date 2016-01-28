@@ -495,10 +495,17 @@
         </member>
         <member name="M:Muxar.Controllers.ArtistsController.Search(System.String)">
             <summary>
-            search artists based on their name
+            search artists based on their approximate
             </summary>
             <param name="artistLabel"></param>
             <returns>a list of strings representing artists' names</returns>
+        </member>
+        <member name="M:Muxar.Controllers.ArtistsController.SearchDetails(System.String)">
+            <summary>
+            After picking an artist's name from the suggestions, associate dbpedia's info with ehconest's
+            </summary>
+            <param name="artistName"></param>
+            <returns></returns>
         </member>
         <member name="M:Muxar.Controllers.GenresController.GetByArtist(System.String)">
             <summary>

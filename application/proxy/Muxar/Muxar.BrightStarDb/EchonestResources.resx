@@ -123,16 +123,34 @@
   <data name="Id" xml:space="preserve">
     <value>id</value>
   </data>
+  <data name="IdUriPath" xml:space="preserve">
+    <value>&amp;id=</value>
+  </data>
+  <data name="JsonFormat" xml:space="preserve">
+    <value>&amp;format=json</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>name</value>
   </data>
   <data name="NameUriPath" xml:space="preserve">
     <value>&amp;name=</value>
   </data>
+  <data name="OfficialWebsite" xml:space="preserve">
+    <value>official_url</value>
+  </data>
   <data name="Response" xml:space="preserve">
     <value>response</value>
   </data>
   <data name="SearchArtist" xml:space="preserve">
     <value>artist/search?</value>
+  </data>
+  <data name="Urls" xml:space="preserve">
+    <value>urls</value>
+  </data>
+  <data name="WebsiteArtist" xml:space="preserve">
+    <value>artist/urls?</value>
+  </data>
+  <data name="Wiki" xml:space="preserve">
+    <value>wikipedia_url</value>
   </data>
 </root>

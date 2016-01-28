@@ -19,8 +19,7 @@ namespace Muxar.Controllers
         [Route("api/Playlists/GetByGenre")]
         public async Task<IHttpActionResult> GetByGenre(string genreLabel)
         {
-            var artist = await echonestEndpoint.SearchArtist("Radiohead");
-            return Ok(artist);
+            return Ok();
         }
     }
 }

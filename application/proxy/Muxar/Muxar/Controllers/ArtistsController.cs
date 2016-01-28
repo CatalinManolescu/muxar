@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
 using Muxar.Helpers;
@@ -11,10 +12,12 @@ namespace Muxar.Controllers
     public class ArtistsController : BaseApiController
     {
         private readonly DbpediaEndpoint dbpediaEndpoint;
+        private EchonestEndpoint echonestEndpoint;
 
         public ArtistsController()
         {
             dbpediaEndpoint = new DbpediaEndpoint();
+            echonestEndpoint = new EchonestEndpoint();
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace Muxar.Controllers
         }
 
         /// <summary>
-        /// search artists based on their name
+        /// search artists based on their approximate
         /// </summary>
         /// <param name="artistLabel"></param>
         /// <returns>a list of strings representing artists' names</returns>
@@ -46,6 +49,22 @@ namespace Muxar.Controllers
 
             var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
             return Ok(result);
+        }
+
+        /// <summary>
+        /// After picking an artist's name from the suggestions, associate dbpedia's info with ehconest's
+        /// </summary>
+        /// <param name="artistName"></param>
+        /// <returns></returns>
+        public async Task<IHttpActionResult> SearchDetails(string artistName)
+        {
+            if (Validators.StringInputValidator(artistName))
+                return BadRequest(string.Format(Resources.input, "artistName"));
+
+            var artist = await echonestEndpoint.SearchArtist(artistName);
+            await echonestEndpoint.FindWebsite(artist);
+            dbpediaEndpoint.GetArtistByNameAndWebsite(artist);
+            return Ok(artist);
         }
     }
 }

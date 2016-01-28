@@ -6,10 +6,11 @@ namespace Muxar.EntitiesDto
     public class ArtistDto
     {
         public string Id { get; set; }
-        public string SpotifyId { get; set; }
+        public string Thumbnail { get; set; }
         public string EchonestId { get; set; }
         public string Name { get; set; }
         public string Website { get; set; }
+        public string Wiki { get; set; }
 
         //ICollection<MemberDto> Members { get; set; }
 

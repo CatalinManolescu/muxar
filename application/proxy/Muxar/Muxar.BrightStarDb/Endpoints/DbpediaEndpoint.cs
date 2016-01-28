@@ -4,6 +4,7 @@ using System.Linq;
 using Muxar.BrightStarDb.Helpers;
 using VDS.RDF.Query;
 using System.Configuration;
+using Muxar.EntitiesDto;
 
 namespace Muxar.BrightStarDb.Endpoints
 {
@@ -31,6 +32,17 @@ namespace Muxar.BrightStarDb.Endpoints
 
             return results;
         }
+
+        public void GetArtistByNameAndWebsite(ArtistDto artistDto)
+        {
+            var query = string.Format(SparqlResources.SearchArtistByNameAndWebsite, artistDto.Name.ToLower(),
+                artistDto.Wiki?.ToLower(), artistDto.Website?.ToLower());
+            sparqlRemoteEndpoint.Timeout = 600000;
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+            DbpediaHelper.UpdateArtistData(artistDto, resultSet);
+        }
+
+        
 
         public IList<string> GetArtistsByGenres(IList<string> genres)
         {

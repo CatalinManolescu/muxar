@@ -1,7 +1,5 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Muxar.EntitiesDto;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Muxar.BrightStarDb.Helpers
@@ -26,6 +24,22 @@ namespace Muxar.BrightStarDb.Helpers
                     Name = result[EchonestResources.Name].ToString()
                 };
             return artist;
+        }
+
+        public static async Task<JObject> GetWebsiteResponse(string echonestId)
+        {
+            var uri = EchonestUriHelper.GenerateWebsiteUri(echonestId);
+            var response = await HttpClientHelper.GetResponseMessage(uri);
+            return response;
+        }
+
+        public static ArtistDto CreateFindWebsiteResponse(JObject response, ArtistDto artistDto)
+        {
+            var result = (response[EchonestResources.Response] as JObject)[EchonestResources.Urls] as JObject;
+            if (result != null)
+                artistDto.Website = result[EchonestResources.OfficialWebsite]?.ToString();
+                artistDto.Wiki = result[EchonestResources.Wiki]?.ToString();
+            return artistDto;
         }
     }
 }

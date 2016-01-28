@@ -79,6 +79,24 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;id=.
+        /// </summary>
+        internal static string IdUriPath {
+            get {
+                return ResourceManager.GetString("IdUriPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;format=json.
+        /// </summary>
+        internal static string JsonFormat {
+            get {
+                return ResourceManager.GetString("JsonFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to name.
         /// </summary>
         internal static string Name {
@@ -97,6 +115,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to official_url.
+        /// </summary>
+        internal static string OfficialWebsite {
+            get {
+                return ResourceManager.GetString("OfficialWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to response.
         /// </summary>
         internal static string Response {
@@ -111,6 +138,33 @@ namespace Muxar.BrightStarDb {
         internal static string SearchArtist {
             get {
                 return ResourceManager.GetString("SearchArtist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to urls.
+        /// </summary>
+        internal static string Urls {
+            get {
+                return ResourceManager.GetString("Urls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to artist/urls?.
+        /// </summary>
+        internal static string WebsiteArtist {
+            get {
+                return ResourceManager.GetString("WebsiteArtist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wikipedia_url.
+        /// </summary>
+        internal static string Wiki {
+            get {
+                return ResourceManager.GetString("Wiki", resourceCulture);
             }
         }
     }

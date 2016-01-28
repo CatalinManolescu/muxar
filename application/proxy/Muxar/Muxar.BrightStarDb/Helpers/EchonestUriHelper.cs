@@ -15,5 +15,15 @@ namespace Muxar.BrightStarDb.Helpers
             var uri = new Uri(uriString);
             return uri;
         }
+
+        public static Uri GenerateWebsiteUri(string echonestId)
+        {
+            var uriString =
+                $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.WebsiteArtist}" +
+                $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.IdUriPath}{echonestId}" +
+                $"{EchonestResources.JsonFormat}";
+            var uri = new Uri(uriString);
+            return uri;
+        }
     }
 }

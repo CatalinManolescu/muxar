@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Muxar.EntitiesDto;
+using VDS.RDF.Query;
 
 namespace Muxar.BrightStarDb.Helpers
 {
@@ -12,6 +14,18 @@ namespace Muxar.BrightStarDb.Helpers
                 (current, genre) => current + string.Format(SparqlResources.ContainsPattern, genre.ToLower()));
             genreFilter = genreFilter.Substring(0, genreFilter.LastIndexOf("||", StringComparison.Ordinal));
             return genreFilter;
+        }
+
+        public static void UpdateArtistData(ArtistDto artistDto, SparqlResultSet resultSet)
+        {
+            var result = resultSet.Results.FirstOrDefault();
+            if (result == null) return;
+
+            artistDto.Id = result.Value(SparqlResources.Artist).ToString()
+                .Replace(SparqlResources.EnLangQualifier, string.Empty);
+            artistDto.Wiki = result.Value(SparqlResources.Wiki).ToString();
+            artistDto.Website = result.Value(SparqlResources.Homepage).ToString();
+            artistDto.Thumbnail = result.Value(SparqlResources.Thumbnail).ToString();
         }
     }
 }

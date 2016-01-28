@@ -15,6 +15,12 @@ namespace Muxar.BrightStarDb.Endpoints
             return artist;
         }
 
+        public async Task FindWebsite(ArtistDto artistDto)
+        {
+            var response = await EchonestHelper.GetWebsiteResponse(artistDto.EchonestId);
+            EchonestHelper.CreateFindWebsiteResponse(response, artistDto);
+        }
+
         //public double GetArtistsHottness(string artist)
         //{
             

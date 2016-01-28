@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Artist" xml:space="preserve">
+    <value>artist</value>
+  </data>
   <data name="ArtistName" xml:space="preserve">
     <value>artistName</value>
   </data>
@@ -160,6 +163,32 @@ FILTER(lang(?genreLabel) = 'en')
 }}
 LIMIT 100</value>
   </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>homepage</value>
+  </data>
+  <data name="SearchArtistByNameAndWebsite" xml:space="preserve">
+    <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
+PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+PREFIX schema:    &lt;http://schema.org/&gt;
+SELECT distinct ?artist ?artistName ?wiki ?homepage ?thumbnail
+WHERE {{
+	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
+	VALUES ?website {{ dbp:website foaf:homepage }}
+		?artist a ?type .
+		?artist rdfs:label ?artistName.
+	OPTIONAL {{
+		?artist ?website ?homepage .
+		?artist foaf:isPrimaryTopicOf ?wiki .
+		?artist dbo:thumbnail ?thumbnail
+	}}
+	FILTER(CONTAINS(LCASE(STR(?artistName)), '{0}')) .
+	FILTER(lang(?artistName) = 'en') .
+	FILTER(CONTAINS(LCASE(STR(?wiki)), '{1}') || CONTAINS(LCASE(STR(?homepage)), '{2}'))
+}}
+GROUP BY ?artist ?artistName ?wiki ?homepage ?thumbnail
+ORDER BY ?artistName
+LIMIT 1</value>
+  </data>
   <data name="SearchArtistsByLabel" xml:space="preserve">
     <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
                         PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
@@ -175,5 +204,11 @@ LIMIT 100</value>
                         GROUP BY ?artist ?artistName
                         ORDER BY ?artistName
                         LIMIT 30</value>
+  </data>
+  <data name="Thumbnail" xml:space="preserve">
+    <value>thumbnail</value>
+  </data>
+  <data name="Wiki" xml:space="preserve">
+    <value>wiki</value>
   </data>
 </root>
