@@ -16,7 +16,8 @@ namespace Muxar.BrightStarDb.Endpoints
         public DbpediaEndpoint()
         {
             var sparqlUri = new Uri(ConfigurationManager.AppSettings[DbpediaEndpointUri]);
-            sparqlRemoteEndpoint = new SparqlRemoteEndpoint(sparqlUri);
+            sparqlRemoteEndpoint = new SparqlRemoteEndpoint(sparqlUri) {Timeout = 600000};
+
         }
 
         public IList<string> GetArtistsWithName(string name)
