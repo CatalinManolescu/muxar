@@ -54,8 +54,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -169,7 +169,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
-    <Compile Include="Controllers\BandsController.cs" />
+    <Compile Include="Controllers\PlaylistsController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -242,6 +242,10 @@
     <ProjectReference Include="..\Muxar.BrightStarDb\Muxar.BrightStarDb.csproj">
       <Project>{67B50A28-2163-4591-81EA-80BCED6896C4}</Project>
       <Name>Muxar.BrightStarDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Muxar.EntitiesDto\Muxar.EntitiesDto.csproj">
+      <Project>{98A17F27-E627-4A2D-AF26-3E3BCED9D438}</Project>
+      <Name>Muxar.EntitiesDto</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
