@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Muxar.Controllers
+namespace Muxar.Controllers.api
 {
     public class AlbumsController : BaseApiController
     {

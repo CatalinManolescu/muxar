@@ -2,7 +2,7 @@
 using System.Net;
 using System.Web.Http;
 
-namespace Muxar.Controllers
+namespace Muxar.Controllers.api
 {
     public class BaseApiController : ApiController
     {

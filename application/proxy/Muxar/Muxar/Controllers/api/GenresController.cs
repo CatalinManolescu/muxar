@@ -2,7 +2,7 @@
 using Muxar.BrightStarDb.Endpoints;
 using Muxar.Helpers;
 
-namespace Muxar.Controllers
+namespace Muxar.Controllers.api
 {
     public class GenresController : BaseApiController
     {

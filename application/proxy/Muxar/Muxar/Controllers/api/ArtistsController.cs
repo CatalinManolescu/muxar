@@ -4,7 +4,7 @@ using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
 using Muxar.Helpers;
 
-namespace Muxar.Controllers
+namespace Muxar.Controllers.api
 {
     /// <summary>
     /// Here you can get all artists-related queries

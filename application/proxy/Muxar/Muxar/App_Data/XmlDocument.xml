@@ -481,33 +481,33 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:Muxar.Controllers.ArtistsController">
+        <member name="T:Muxar.Controllers.api.ArtistsController">
             <summary>
             Here you can get all artists-related queries
             </summary>
         </member>
-        <member name="M:Muxar.Controllers.ArtistsController.SearchByGenres(System.Collections.Generic.IList{System.String})">
+        <member name="M:Muxar.Controllers.api.ArtistsController.SearchByGenres(System.Collections.Generic.IList{System.String})">
             <summary>
             Get artists by providing a collection of strings - genres
             </summary>
             <param name="genresList">genresList - Collection of string</param>
             <returns>a list of strings representing artists' names</returns>
         </member>
-        <member name="M:Muxar.Controllers.ArtistsController.Search(System.String)">
+        <member name="M:Muxar.Controllers.api.ArtistsController.Search(System.String)">
             <summary>
             search artists based on their approximate
             </summary>
             <param name="artistLabel"></param>
             <returns>a list of strings representing artists' names</returns>
         </member>
-        <member name="M:Muxar.Controllers.ArtistsController.SearchDetails(System.String)">
+        <member name="M:Muxar.Controllers.api.ArtistsController.SearchDetails(System.String)">
             <summary>
             After picking an artist's name from the suggestions, associate dbpedia's info with ehconest's
             </summary>
             <param name="artistName"></param>
             <returns></returns>
         </member>
-        <member name="M:Muxar.Controllers.GenresController.GetByArtist(System.String)">
+        <member name="M:Muxar.Controllers.api.GenresController.GetByArtist(System.String)">
             <summary>
             get genres of an artist
             </summary>

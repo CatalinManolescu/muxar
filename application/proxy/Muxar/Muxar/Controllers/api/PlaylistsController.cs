@@ -4,7 +4,7 @@ using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
 using Muxar.EntitiesDto;
 
-namespace Muxar.Controllers
+namespace Muxar.Controllers.api
 {
     public class PlaylistsController : BaseApiController
     {
@@ -49,7 +49,7 @@ namespace Muxar.Controllers
         }
 
         [HttpPost]
-        [Route("/api/Playlists/Create")]
+        [Route("api/Playlists/Create")]
         public async Task<IHttpActionResult> Create(string playListName, [FromBody] SongDto song)
         {
             //create new playlist -> owner is user;
@@ -59,7 +59,7 @@ namespace Muxar.Controllers
         }
 
         [HttpPost]
-        [Route("/api/Playlists/AddSong")]
+        [Route("api/Playlists/AddSong")]
         public async Task<IHttpActionResult> AddSong(string playListUri, [FromBody] SongDto song)
         {
             //create new playlist -> owner is user;
@@ -69,7 +69,7 @@ namespace Muxar.Controllers
         }
 
         [HttpPut]
-        [Route("/api/Playlists/Update")]
+        [Route("api/Playlists/Update")]
         public async Task<IHttpActionResult> Update(string playlistUri, [FromBody] IList<string> songUris)
         {
             //get users playlist from local db;
@@ -78,7 +78,7 @@ namespace Muxar.Controllers
         }
 
         [HttpDelete]
-        [Route("/api/Playlists/Delete")]
+        [Route("api/Playlists/Delete")]
         public async Task<IHttpActionResult> Delete(string playlistUri)
         {
             //get users playlist from local db;
@@ -87,7 +87,7 @@ namespace Muxar.Controllers
         }
 
         [HttpPut]
-        [Route("/api/Playlists/Follow")]
+        [Route("api/Playlists/Follow")]
         public async Task<IHttpActionResult> Follow(string playlistUri)
         {
             //add playlist's uri to users following list;

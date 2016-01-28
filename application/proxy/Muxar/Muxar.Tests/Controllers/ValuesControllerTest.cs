@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Muxar;
 using Muxar.Controllers;
+using Muxar.Controllers.api;
 
 namespace Muxar.Tests.Controllers
 {
