@@ -161,7 +161,7 @@ namespace Muxar.BrightStarDb {
         ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
         ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///PREFIX schema:    &lt;http://schema.org/&gt;
-        ///SELECT distinct ?artist ?artistName ?wiki ?homepage ?thumbnail
+        ///SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail)
         ///WHERE {{
         ///	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
         ///	VALUES ?website {{ dbp:website foaf:homepage }}
@@ -170,8 +170,7 @@ namespace Muxar.BrightStarDb {
         ///	OPTIONAL {{
         ///		?artist ?website ?homepage .
         ///		?artist foaf:isPrimaryTopicOf ?wiki .
-        ///		?artist dbo:thumbnail ?thumbnail
-        ///	}}        /// [rest of string was truncated]&quot;;.
+        ///		?artist dbo:thumbnail ?thumbnail        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SearchArtistByNameAndWebsite {
             get {

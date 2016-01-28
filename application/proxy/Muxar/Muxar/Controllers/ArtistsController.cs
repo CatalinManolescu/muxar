@@ -56,6 +56,8 @@ namespace Muxar.Controllers
         /// </summary>
         /// <param name="artistName"></param>
         /// <returns></returns>
+        [HttpGet]
+        [Route("api/Artists/SearchDetails")]
         public async Task<IHttpActionResult> SearchDetails(string artistName)
         {
             if (Validators.StringInputValidator(artistName))

@@ -37,7 +37,6 @@ namespace Muxar.BrightStarDb.Endpoints
         {
             var query = string.Format(SparqlResources.SearchArtistByNameAndWebsite, artistDto.Name.ToLower(),
                 artistDto.Wiki?.ToLower(), artistDto.Website?.ToLower());
-            sparqlRemoteEndpoint.Timeout = 600000;
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
             DbpediaHelper.UpdateArtistData(artistDto, resultSet);
         }
