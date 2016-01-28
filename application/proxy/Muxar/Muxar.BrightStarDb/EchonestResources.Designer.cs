@@ -61,11 +61,47 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;name=.
+        ///   Looks up a localized string similar to artists.
+        /// </summary>
+        internal static string Artists {
+            get {
+                return ResourceManager.GetString("Artists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to id.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name.
         /// </summary>
         internal static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;name=.
+        /// </summary>
+        internal static string NameUriPath {
+            get {
+                return ResourceManager.GetString("NameUriPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to response.
+        /// </summary>
+        internal static string Response {
+            get {
+                return ResourceManager.GetString("Response", resourceCulture);
             }
         }
         

@@ -75,7 +75,10 @@
   <ItemGroup>
     <Compile Include="Endpoints\DbpediaEndpoint.cs" />
     <Compile Include="Endpoints\EchonestEndpoint.cs" />
+    <Compile Include="Helpers\HttpClientHelper.cs" />
     <Compile Include="Helpers\DbpediaHelper.cs" />
+    <Compile Include="Helpers\EchonestHelper.cs" />
+    <Compile Include="Helpers\EchonestUriHelper.cs" />
     <Compile Include="Models\IAlbum.cs" />
     <Compile Include="Models\IArtist.cs" />
     <Compile Include="Models\IMember.cs" />
