@@ -21,11 +21,19 @@ namespace Muxar.BrightStarDb.Helpers
             var result = resultSet.Results.FirstOrDefault();
             if (result == null) return;
 
-            artistDto.Id = result.Value(SparqlResources.Artist).ToString()
-                .Replace(SparqlResources.EnLangQualifier, string.Empty);
-            artistDto.Wiki = result.Value(SparqlResources.Wiki).ToString();
-            artistDto.Website = result.Value(SparqlResources.Homepage).ToString();
-            artistDto.Thumbnail = result.Value(SparqlResources.Thumbnail).ToString();
+            artistDto.Id = result.Value(SparqlResources.Artist).ToString();
+            if (result.HasValue(SparqlResources.Wiki))
+            {
+                artistDto.Wiki = result.Value(SparqlResources.Wiki)?.ToString();
+            }
+            if (result.HasValue(SparqlResources.Homepage))
+            {
+                artistDto.Website = result.Value(SparqlResources.Homepage)?.ToString();
+            }
+            if (result.HasValue(SparqlResources.Thumbnail))
+            {
+                artistDto.Thumbnail = result.Value(SparqlResources.Thumbnail)?.ToString();
+            }
         }
     }
 }
