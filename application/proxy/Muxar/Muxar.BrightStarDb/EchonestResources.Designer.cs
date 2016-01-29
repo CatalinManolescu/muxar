@@ -61,6 +61,24 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to artist_id.
+        /// </summary>
+        internal static string ArtistId {
+            get {
+                return ResourceManager.GetString("ArtistId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to artist_name.
+        /// </summary>
+        internal static string ArtistName {
+            get {
+                return ResourceManager.GetString("ArtistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;artist=.
         /// </summary>
         internal static string ArtistPath {
@@ -84,6 +102,15 @@ namespace Muxar.BrightStarDb {
         internal static string Artists {
             get {
                 return ResourceManager.GetString("Artists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to foreign_id.
+        /// </summary>
+        internal static string ForeignId {
+            get {
+                return ResourceManager.GetString("ForeignId", resourceCulture);
             }
         }
         
@@ -187,11 +214,38 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to songs.
+        /// </summary>
+        internal static string Songs {
+            get {
+                return ResourceManager.GetString("Songs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;bucket=id:spotify.
         /// </summary>
         internal static string SpotifyBucket {
             get {
                 return ResourceManager.GetString("SpotifyBucket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to title.
+        /// </summary>
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tracks.
+        /// </summary>
+        internal static string Tracks {
+            get {
+                return ResourceManager.GetString("Tracks", resourceCulture);
             }
         }
         

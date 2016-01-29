@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArtistId" xml:space="preserve">
+    <value>artist_id</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>artist_name</value>
+  </data>
   <data name="ArtistPath" xml:space="preserve">
     <value>&amp;artist=</value>
   </data>
@@ -125,6 +131,9 @@
   </data>
   <data name="Artists" xml:space="preserve">
     <value>artists</value>
+  </data>
+  <data name="ForeignId" xml:space="preserve">
+    <value>foreign_id</value>
   </data>
   <data name="Id" xml:space="preserve">
     <value>id</value>
@@ -159,8 +168,17 @@
   <data name="SearchArtist" xml:space="preserve">
     <value>artist/search?</value>
   </data>
+  <data name="Songs" xml:space="preserve">
+    <value>songs</value>
+  </data>
   <data name="SpotifyBucket" xml:space="preserve">
     <value>&amp;bucket=id:spotify</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>title</value>
+  </data>
+  <data name="Tracks" xml:space="preserve">
+    <value>tracks</value>
   </data>
   <data name="TracksBucket" xml:space="preserve">
     <value>&amp;bucket=tracks</value>

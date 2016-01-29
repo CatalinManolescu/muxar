@@ -52,7 +52,21 @@ namespace Muxar.BrightStarDb.Helpers
 
         public static IList<SongDto> CreateArtistPlaylistResponse(JObject response)
         {
-            throw new System.NotImplementedException();
+            var result = ((response[EchonestResources.Response] as JObject)[EchonestResources.Songs] as JArray);
+            var songs = new List<SongDto>();
+            foreach (var songResult in result)
+            {
+                var newSong = new SongDto();
+                var song = songResult as JObject;
+                newSong.Name = song[EchonestResources.Title].ToString();
+                newSong.ArtistName = song[EchonestResources.ArtistName].ToString();
+                newSong.EchonestId = song[EchonestResources.Id].ToString();
+                newSong.ArtistEchonestId = song[EchonestResources.ArtistId].ToString();
+                var trackDetails = (song[EchonestResources.Tracks] as JArray).First as JObject;
+                newSong.SpotifyId = trackDetails[EchonestResources.ForeignId].ToString();
+                songs.Add(newSong);
+            }
+            return songs;
         }
     }
 }

@@ -33,11 +33,8 @@ namespace Muxar.Controllers.api
         [Route("api/Playlists/GetByArtist")]
         public async Task<IHttpActionResult> GetByArtist(string artistUri)
         {
-            //query dbpedia for similar artists
-            //query local db to check if we already have info about the artists found
-            //query echonest to find info about artists and store to local db
-            //query echonest for playlist generation
-            return Ok();
+            var playlist = await echonestEndpoint.GenerateArtistPlaylist(artistUri);
+            return Ok(playlist);
         }
 
         [HttpGet]
