@@ -32,7 +32,12 @@ namespace Muxar.Controllers.api
         /// <summary>
         /// builds a playlist starting from the echonest id of an artist;
         ///it resurns a list of Songs, which include spotifyId of each song.
-        ///A simple example of response would be:
+        ///To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+        ///with each entity
+        /// </summary>
+        /// <param name="artistUri"></param>
+        /// <returns>
+        /// A simple example of response would be:
         ///[{
         ///    "Id": null,
         ///    "SpotifyId": "spotify:track:520DbYnofadcEwvlfggev0",
@@ -42,11 +47,7 @@ namespace Muxar.Controllers.api
         ///    "ArtistName": "Alex Turner",
         ///    "Thumbnail": null
         ///}]
-        ///To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
-        ///with each entity
-        /// </summary>
-        /// <param name="artistUri"></param>
-        /// <returns></returns>
+        /// </returns>
         [HttpGet]
         [Route("api/Playlists/GetByArtist")]
         public async Task<IHttpActionResult> GetByArtist(string artistUri)

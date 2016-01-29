@@ -10,8 +10,8 @@ namespace Muxar.BrightStarDb.Helpers
     {
         public static string GenerateGenreFilter(IEnumerable<string> genres)
         {
-            var genreFilter = genres.Aggregate(string.Empty,
-                (current, genre) => current + string.Format(SparqlResources.ContainsPattern, genre.ToLower()));
+            var genreFilter = genres.Aggregate(String.Empty,
+                (current, genre) => current + String.Format(SparqlResources.ContainsPattern, genre.ToLower()));
             genreFilter = genreFilter.Substring(0, genreFilter.LastIndexOf("||", StringComparison.Ordinal));
             return genreFilter;
         }
@@ -38,6 +38,29 @@ namespace Muxar.BrightStarDb.Helpers
             {
                 artistDto.Abstract = result.Value(SparqlResources.Abstract)?.ToString();
             }
+        }
+
+        public static List<SimpleArtistDto> GetSimpleArtists(SparqlResultSet resultSet)
+        {
+            var result = resultSet.Results;
+            var simpleArtists = new List<SimpleArtistDto>();
+            foreach (var entity in result)
+            {
+                var simpleArtistDto = new SimpleArtistDto
+                {
+                    Id = entity.Value(SparqlResources.Artist).ToString(),
+                    Name = entity.Value(SparqlResources.ArtistName)
+                        .ToString()
+                        .Replace(SparqlResources.EnLangQualifier, string.Empty)
+                };
+                if (entity.HasValue(SparqlResources.Thumbnail))
+                {
+                    simpleArtistDto.Thumbnail = entity.Value(SparqlResources.Thumbnail)?.ToString();
+                }
+                simpleArtists.Add(simpleArtistDto);
+            }
+            
+            return simpleArtists;
         }
 
         public static void UpdateSongData(SparqlResultSet resultSet, SongDto songDto)

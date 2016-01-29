@@ -256,7 +256,7 @@ namespace Muxar.BrightStarDb {
         ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///PREFIX schema:    &lt;http://schema.org/&gt;
         ///
-        ///SELECT DISTINCT ?artist ?artistName
+        ///SELECT DISTINCT ?artist ?artistName  min(?thumbnail) as ?thumbnail
         ///WHERE {{
         /// VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
         /// VALUES ?hometown {{ dbo:hometown dbo:birthplace }}
@@ -265,9 +265,8 @@ namespace Muxar.BrightStarDb {
         ///          ?artist ?hometown ?city.
         ///  ?city dbo:country ?country.
         ///  ?country rdfs:label &apos;{0}&apos;@en.
-        ///  FILTER(lang(?artistName)=&apos;en&apos;)
-        ///}}
-        ///LIMIT 20.
+        ///OPTIONAL {{
+        ///  ? [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SearchArtistsByCountry {
             get {

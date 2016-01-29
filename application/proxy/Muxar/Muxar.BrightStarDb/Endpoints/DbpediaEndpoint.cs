@@ -74,16 +74,11 @@ namespace Muxar.BrightStarDb.Endpoints
             return results;
         }
 
-        public Dictionary<string, string> GetArtistsByCountry(string countryUri)
+        public List<SimpleArtistDto> GetArtistsByCountry(string countryUri)
         {
             var query = string.Format(SparqlResources.SearchArtistsByCountry, countryUri);
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
-            var result = resultSet.Results.ToDictionary(x => x.Value(SparqlResources.Artist).ToString(),
-                x =>
-                    x.Value(SparqlResources.ArtistName)
-                        .ToString()
-                        .Replace(SparqlResources.EnLangQualifier, string.Empty));
-            return result;
+            return DbpediaHelper.GetSimpleArtists(resultSet);
         }
 
         public void GetSongByNameAndArtist(SongDto songDto)

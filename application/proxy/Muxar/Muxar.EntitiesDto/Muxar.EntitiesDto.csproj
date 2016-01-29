@@ -43,6 +43,7 @@
     <Compile Include="ArtistDto.cs" />
     <Compile Include="CountryDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleArtistDto.cs" />
     <Compile Include="SongDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
