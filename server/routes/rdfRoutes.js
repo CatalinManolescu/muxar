@@ -4,9 +4,10 @@
  */
 
 var RDFLocal = require('./../clients/RDFLocal');
+var importService = require('./../services/importService');
 
 var initRDF = function(req, res, next) {
-    RDFLocal.initRDF();
+    importService.doImport();
     res.send('please wait until we finish. check log for errors');
     return next();
 };
@@ -24,9 +25,8 @@ var sparqlSearch = function(req, res, next) {
         } else {
             res.send(resp);
         }
-
-        return next();
     });
+    return next();
 };
 
 module.exports.initRDF = initRDF;
