@@ -40,6 +40,7 @@ fs.readdirSync(routes_path).forEach(function (file) {
 var server = restify.createServer({
     name: config.applicationName
 });
+server.pre(restify.pre.sanitizePath());
 
 server.use(restify.authorizationParser());
 server.use(restify.queryParser());
@@ -56,8 +57,9 @@ server.use(function(req, res, next){
 
 
 server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
-server.get({name: 'artists', path: '/api/artists'}, proxyRoutes.searchArtistsByName);
-server.get({name: 'artists_genres', path: '/api/artists/genres'}, proxyRoutes.searchGenresByArtist);
+server.get({name: 'artists', path: '/api/artists'}, proxyRoutes.searchArtists);
+server.get({name: 'artist', path: '/api/artists/:artist'}, proxyRoutes.getArtistByName);
+server.get({name: 'artist_genres', path: '/api/artists/:artist/genres'}, proxyRoutes.searchGenresByArtist);
 
 server.get({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
 server.post({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
