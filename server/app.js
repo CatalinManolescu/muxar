@@ -60,6 +60,7 @@ server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
 server.get({name: 'artists', path: '/api/artists'}, proxyRoutes.searchArtists);
 server.get({name: 'artist', path: '/api/artists/:artist'}, proxyRoutes.getArtistByName);
 server.get({name: 'artist_genres', path: '/api/artists/:artist/genres'}, proxyRoutes.searchGenresByArtist);
+server.get({name: 'regions', path: '/api/regions'}, proxyRoutes.searchGenresByArtist);
 server.get({name: 'playlists', path: '/api/playlists'}, proxyRoutes.searchPlaylists);
 
 server.get({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);

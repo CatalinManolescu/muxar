@@ -112,8 +112,51 @@ var searchPlaylistsByArtist = function(req, res, next) {
     return next();
 };
 
+var searchRegions = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    if (req.query.continent) {
+        return searchRegionsByContinent(req,res,next);
+    } if (req.query.country) {
+        return searchRegionsByCountry(req,res,next);
+    }
+
+    return next();
+};
+
+var searchRegionsByContinent = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Regions/GetByContinent?continentUri=' + req.query.continent + '&limit=' + limit;
+    request.get({
+        url: url
+    }, function (error, response, body) {
+        if (error) {
+            res.send(500,{error:error});
+        } else {
+            res.send(body);
+        }
+    });
+
+    return next();
+};
+
+var searchRegionsByCountry = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Regions/GetByCountry?countryUri=' + req.query.country + '&limit=' + limit;
+    request.get({
+        url: url
+    }, function (error, response, body) {
+        if (error) {
+            res.send(500,{error:error});
+        } else {
+            res.send(body);
+        }
+    });
+
+    return next();
+};
 
 module.exports.searchPlaylists = searchPlaylists;
 module.exports.searchArtists = searchArtists;
 module.exports.getArtistByName = getArtistByName;
 module.exports.searchGenresByArtist = searchGenresByArtist;
+module.exports.searchRegions = searchRegions;
