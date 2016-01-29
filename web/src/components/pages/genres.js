@@ -18,7 +18,7 @@ var Genres = React.createClass({
 			var self = this;
 			SongsApi.getGenresList(function(response){
 				self.setState({ genres: response });
-			})
+			});
 		}
 	},
 

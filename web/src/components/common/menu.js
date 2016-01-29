@@ -11,7 +11,7 @@ var Menu = React.createClass({
 		        <div className="buttonsHolder">
 					<div className="menuComponent"><Link to="app" className="menuLinks">genres</Link></div>
 		            <div className="menuComponent"><Link to="mood"className="menuLinks"> mood</Link></div>
-					<div className="menuComponent"><Link to="recommendations" className="menuLinks"> surprise me</Link></div>
+					<div className="menuComponent"><Link to="surprise" className="menuLinks"> surprise me</Link></div>
 		        </div>
 	        </div>
 		);

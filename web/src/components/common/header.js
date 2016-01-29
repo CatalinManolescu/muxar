@@ -4,11 +4,17 @@ var React = require('react');
 var SearchForm = require("../pages/searchForm");
 var toastr = require('toastr');
 var SongsApi = require('../api/songsApi');
+var Router = require('react-router');
+var pubsub = require('pubsub-js');
+//var transitionTo = Router.transitionTo;
 
 var Header = React.createClass({
+  mixins: [Router.Navigation],
+
   getInitialState: function(){
       return {
-        searchItem: {search: ""}
+        searchItem: {search: ""},
+        artists: []
       };
   },
 
@@ -21,7 +27,12 @@ var Header = React.createClass({
 
   searchTheItem:function(event){
       event.preventDefault();
-      var response = SongsApi.firstSearchByArtist(this.state.searchItem.search);
+      var self = this;
+      SongsApi.firstSearchByArtist(this.state.searchItem.search, function(response){
+            self.setState({artists: response});
+            self.transitionTo('recommendations', {artists: response});
+            //pubsub.publish('artists', self.state.artists);
+          });
   },
 
 	render: function() {
