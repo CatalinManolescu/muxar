@@ -10,6 +10,7 @@ var authenticationManager = require('./services/authenticationManager');
 var rdfRoutes = require('./routes/rdfRoutes');
 var genreRoutes = require('./routes/genreRoutes');
 var proxyRoutes = require('./routes/proxyRoutes');
+var playlistRoutes = require('./routes/playlistRoutes');
 var testRoutes = require('./routes/testRoute');
 
 
@@ -62,6 +63,8 @@ server.get({name: 'artist', path: '/api/artists/:artist'}, proxyRoutes.getArtist
 server.get({name: 'artist_genres', path: '/api/artists/:artist/genres'}, proxyRoutes.searchGenresByArtist);
 server.get({name: 'regions', path: '/api/regions'}, proxyRoutes.searchGenresByArtist);
 server.get({name: 'playlists', path: '/api/playlists'}, proxyRoutes.searchPlaylists);
+server.get({name: 'playlists_featured', path: '/api/playlists/featured'}, playlistRoutes.featured);
+server.get({name: 'playlists_tracks', path: '/api/playlists/:playlist/tracks'}, playlistRoutes.tracks);
 
 server.get({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
 server.post({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
