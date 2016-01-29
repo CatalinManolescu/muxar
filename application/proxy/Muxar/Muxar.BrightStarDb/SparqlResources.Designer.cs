@@ -97,6 +97,24 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to country.
+        /// </summary>
+        internal static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to countryLabel.
+        /// </summary>
+        internal static string CountryLabel {
+            get {
+                return ResourceManager.GetString("CountryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @en.
         /// </summary>
         internal static string EnLangQualifier {
@@ -136,6 +154,29 @@ namespace Muxar.BrightStarDb {
         internal static string GetArtistsByGenre {
             get {
                 return ResourceManager.GetString("GetArtistsByGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+        ///PREFIX yago: &lt;http://dbpedia.org/class/yago/&gt;
+        ///PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+        /// 
+        ///SELECT ?country ?countryLabel min(?thumbnail) as ?thumbnail
+        ///WHERE {{
+        ///    ?country rdf:type yago:EuropeanCountries .
+        ///    ?country rdf:type dbo:Country .
+        ///    ?country rdfs:label ?countryLabel.
+        ///OPTIONAL {{
+        ///    ?country dbo:thumbnail ?thumbnail
+        ///}}
+        ///FILTER(lang(?countryLabel)=&apos;en&apos;)
+        ///}}
+        ///ORDER BY ?countryLabel.
+        /// </summary>
+        internal static string GetCountriesOfEurope {
+            get {
+                return ResourceManager.GetString("GetCountriesOfEurope", resourceCulture);
             }
         }
         

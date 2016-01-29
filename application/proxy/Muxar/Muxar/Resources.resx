@@ -129,6 +129,9 @@
   <data name="Input" xml:space="preserve">
     <value>{0} must have a value!</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>label</value>
+  </data>
   <data name="Musician" xml:space="preserve">
     <value> (musician)</value>
   </data>
@@ -140,5 +143,8 @@
   </data>
   <data name="Songwriter" xml:space="preserve">
     <value> (songwriter)</value>
+  </data>
+  <data name="Submenu" xml:space="preserve">
+    <value>submenu</value>
   </data>
 </root>

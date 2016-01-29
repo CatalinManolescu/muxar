@@ -50,5 +50,27 @@ namespace Muxar.BrightStarDb.Helpers
                 songDto.Thumbnail = result.Value(SparqlResources.Thumbnail)?.ToString();
             }
         }
+
+        public static IList<CountryDto> GenerateCountriesOfEuropeResponse(SparqlResultSet resultSet)
+        {
+            var result = resultSet.Results;
+            if (result == null) return null;
+            var countries = new List<CountryDto>();
+            foreach (var value in result)
+            {
+                var country = new CountryDto
+                {
+                    Id = value.Value(SparqlResources.Country).ToString(),
+                    Name = value.Value(SparqlResources.CountryLabel).ToString()
+                        .Replace(SparqlResources.EnLangQualifier, string.Empty)
+                };
+                if (value.HasValue(SparqlResources.Thumbnail))
+                {
+                    country.Thumbnail = value.Value(SparqlResources.Thumbnail)?.ToString();
+                }
+                countries.Add(country);
+            }
+            return countries;
+        }
     }
 }

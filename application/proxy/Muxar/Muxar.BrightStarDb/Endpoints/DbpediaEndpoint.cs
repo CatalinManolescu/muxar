@@ -93,5 +93,13 @@ namespace Muxar.BrightStarDb.Endpoints
             var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
             DbpediaHelper.UpdateSongData(resultSet, songDto);
         }
+
+        public IList<CountryDto> GetCountriesOfEurope()
+        {
+            var query = string.Format(SparqlResources.GetCountriesOfEurope);
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+            var countries = DbpediaHelper.GenerateCountriesOfEuropeResponse(resultSet);
+            return countries;
+        }
     }
 }

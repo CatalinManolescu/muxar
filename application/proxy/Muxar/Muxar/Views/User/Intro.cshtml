@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Intro";
+}
+
+<h2>Intro</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div id="big-circle" class="circle big col-md-7">
+        <div id="one" class="circle pop">
+            <div class="centered text">Pop</div>
+        </div>
+        <div class="circle two chill">
+            <div class="centered text">Chill</div>
+        </div>
+        <div class="circle three funk">
+            <div class="centered text">Funk</div>
+        </div>
+        <div class="circle four rock">
+            <div class="centered text">Rock</div>
+        </div>
+        <div class="circle five classical">
+            <div class="centered text">Classical</div>
+        </div>
+        <div class="circle six blues">
+            <div class="centered text">Blues</div>
+        </div>
+        <div class="circle seven jazz">
+            <div class="centered text">Jazz</div>
+        </div>
+        <div class="circle eight hiphop ">
+            <div class="centered text">Hip-hop</div>
+        </div>
+        <div class="centered text">
+            Hello, <br/>
+            In order to improve your experience,<br/>
+            first tell us what you like.
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<script>
+    $('#one').on('click', function () {
+        $(this).toggleClass('clicked');
+    });
+</script>

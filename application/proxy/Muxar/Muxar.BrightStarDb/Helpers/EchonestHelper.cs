@@ -62,8 +62,8 @@ namespace Muxar.BrightStarDb.Helpers
                 newSong.ArtistName = song[EchonestResources.ArtistName].ToString();
                 newSong.EchonestId = song[EchonestResources.Id].ToString();
                 newSong.ArtistEchonestId = song[EchonestResources.ArtistId].ToString();
-                var trackDetails = (song[EchonestResources.Tracks] as JArray).First as JObject;
-                newSong.SpotifyId = trackDetails[EchonestResources.ForeignId].ToString();
+                var trackDetails = (song[EchonestResources.Tracks] as JArray)?.First as JObject;
+                newSong.SpotifyId = trackDetails[EchonestResources.ForeignId]?.ToString();
                 songs.Add(newSong);
             }
             return songs;

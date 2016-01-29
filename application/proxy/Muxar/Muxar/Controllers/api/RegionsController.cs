@@ -36,5 +36,13 @@ namespace Muxar.Controllers.api
             //query echonest for playlist generation
             return Ok();
         }
+
+        [HttpGet]
+        [Route("api/Regions/GetCountriesOfEurope")]
+        public IHttpActionResult GetCountriesOfEurope()
+        {
+            var countries = dbpediaEndpoint.GetCountriesOfEurope();
+            return Ok(countries);
+        }
     }
 }
