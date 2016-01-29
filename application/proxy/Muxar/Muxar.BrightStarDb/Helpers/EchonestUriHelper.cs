@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 
 namespace Muxar.BrightStarDb.Helpers
@@ -22,6 +23,18 @@ namespace Muxar.BrightStarDb.Helpers
                 $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.WebsiteArtist}" +
                 $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.IdUriPath}{echonestId}" +
                 $"{EchonestResources.JsonFormat}";
+            var uri = new Uri(uriString);
+            return uri;
+        }
+
+        public static Uri GeneratePlaylistByArtistUri(string artists)
+        {
+            var uriString =
+                $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
+                $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
+                $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
+                $"{EchonestResources.ArtistRadioType}{EchonestResources.TracksBucket}" +
+                $"{EchonestResources.ArtistPath}{artists}";
             var uri = new Uri(uriString);
             return uri;
         }

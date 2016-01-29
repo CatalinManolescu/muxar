@@ -61,6 +61,24 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;artist=.
+        /// </summary>
+        internal static string ArtistPath {
+            get {
+                return ResourceManager.GetString("ArtistPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;type=artist-radio.
+        /// </summary>
+        internal static string ArtistRadioType {
+            get {
+                return ResourceManager.GetString("ArtistRadioType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to artists.
         /// </summary>
         internal static string Artists {
@@ -97,6 +115,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;limit=true.
+        /// </summary>
+        internal static string LimitPath {
+            get {
+                return ResourceManager.GetString("LimitPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to name.
         /// </summary>
         internal static string Name {
@@ -124,11 +151,29 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to playlist/static?.
+        /// </summary>
+        internal static string PlaylistPath {
+            get {
+                return ResourceManager.GetString("PlaylistPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to response.
         /// </summary>
         internal static string Response {
             get {
                 return ResourceManager.GetString("Response", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;results=40.
+        /// </summary>
+        internal static string ResultsPath {
+            get {
+                return ResourceManager.GetString("ResultsPath", resourceCulture);
             }
         }
         
@@ -142,11 +187,38 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;bucket=id:spotify.
+        /// </summary>
+        internal static string SpotifyBucket {
+            get {
+                return ResourceManager.GetString("SpotifyBucket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;bucket=tracks.
+        /// </summary>
+        internal static string TracksBucket {
+            get {
+                return ResourceManager.GetString("TracksBucket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to urls.
         /// </summary>
         internal static string Urls {
             get {
                 return ResourceManager.GetString("Urls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;variety=1.
+        /// </summary>
+        internal static string VarietyPath {
+            get {
+                return ResourceManager.GetString("VarietyPath", resourceCulture);
             }
         }
         

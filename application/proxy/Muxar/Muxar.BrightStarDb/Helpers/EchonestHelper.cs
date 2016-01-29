@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Muxar.EntitiesDto;
 using Newtonsoft.Json.Linq;
 
@@ -40,6 +41,18 @@ namespace Muxar.BrightStarDb.Helpers
                 artistDto.Website = result[EchonestResources.OfficialWebsite]?.ToString();
                 artistDto.Wiki = result[EchonestResources.Wiki]?.ToString();
             return artistDto;
+        }
+
+        public static async Task<JObject> GetPlaylistByArtist(string artistUri)
+        {
+            var uri = EchonestUriHelper.GeneratePlaylistByArtistUri(artistUri);
+            var response = await HttpClientHelper.GetResponseMessage(uri);
+            return response;
+        }
+
+        public static IList<SongDto> CreateArtistPlaylistResponse(JObject response)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

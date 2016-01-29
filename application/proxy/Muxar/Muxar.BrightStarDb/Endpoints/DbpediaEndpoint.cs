@@ -42,7 +42,7 @@ namespace Muxar.BrightStarDb.Endpoints
             DbpediaHelper.UpdateArtistData(artistDto, resultSet);
         }
 
-        
+
 
         public IList<string> GetArtistsByGenres(IList<string> genres)
         {
@@ -72,6 +72,18 @@ namespace Muxar.BrightStarDb.Endpoints
                             .Replace(SparqlResources.EnLangQualifier, string.Empty)).ToList();
 
             return results;
+        }
+
+        public Dictionary<string, string> GetArtistsByCountry(string countryUri)
+        {
+            var query = string.Format(SparqlResources.SearchArtistsByCountry, countryUri);
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+            var result = resultSet.Results.ToDictionary(x => x.Value(SparqlResources.Artist).ToString(),
+                x =>
+                    x.Value(SparqlResources.ArtistName)
+                        .ToString()
+                        .Replace(SparqlResources.EnLangQualifier, string.Empty));
+            return result;
         }
     }
 }

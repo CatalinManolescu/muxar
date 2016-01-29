@@ -173,7 +173,7 @@ LIMIT 100</value>
     <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
 PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
 PREFIX schema:    &lt;http://schema.org/&gt;
-SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail) ?abstract
+SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail) as ?thumbnail ?abstract
 WHERE {{
 	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
 	VALUES ?website {{ dbp:website foaf:homepage }}
@@ -195,11 +195,29 @@ GROUP BY ?artist ?artistName ?wiki ?homepage ?thumbnail ?abstract
 ORDER BY ?artistName
 LIMIT 1</value>
   </data>
+  <data name="SearchArtistsByCountry" xml:space="preserve">
+    <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
+PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+PREFIX schema:    &lt;http://schema.org/&gt;
+
+SELECT DISTINCT ?artist ?artistName
+WHERE {{
+ VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
+ VALUES ?hometown {{ dbo:hometown dbo:birthplace }}
+          ?artist a ?type ;
+          rdfs:label ?artistName .
+          ?artist ?hometown ?city.
+  ?city dbo:country ?country.
+  ?country rdfs:label '{0}'@en.
+  FILTER(lang(?artistName)='en')
+}}
+LIMIT 20</value>
+  </data>
   <data name="SearchArtistsByLabel" xml:space="preserve">
     <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
                         PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
                         PREFIX schema:    &lt;http://schema.org/&gt;
-                        SELECT distinct ?artist ?artistName
+                        SELECT DISTINCT ?artist ?artistName
                         WHERE {{
                         VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
                             ?artist a ?type .
@@ -209,7 +227,7 @@ LIMIT 1</value>
                         }}
                         GROUP BY ?artist ?artistName
                         ORDER BY ?artistName
-                        LIMIT 30</value>
+                        LIMIT 20</value>
   </data>
   <data name="Thumbnail" xml:space="preserve">
     <value>thumbnail</value>

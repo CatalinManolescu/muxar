@@ -170,7 +170,7 @@ namespace Muxar.BrightStarDb {
         ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
         ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///PREFIX schema:    &lt;http://schema.org/&gt;
-        ///SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail) ?abstract
+        ///SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail) as ?thumbnail ?abstract
         ///WHERE {{
         ///	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
         ///	VALUES ?website {{ dbp:website foaf:homepage }}
@@ -178,7 +178,7 @@ namespace Muxar.BrightStarDb {
         ///		?artist rdfs:label ?artistName.
         ///		?artist dbo:abstract ?abstract .
         ///		?artist dbo:thumbnail ?thumbnail .
-        ///		?artist foaf:isPrimaryTopicOf ?wiki  [rest of string was truncated]&quot;;.
+        ///		?artist foaf:isPrimary [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SearchArtistByNameAndWebsite {
             get {
@@ -187,10 +187,34 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
+        ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+        ///PREFIX schema:    &lt;http://schema.org/&gt;
+        ///
+        ///SELECT DISTINCT ?artist ?artistName
+        ///WHERE {{
+        /// VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
+        /// VALUES ?hometown {{ dbo:hometown dbo:birthplace }}
+        ///          ?artist a ?type ;
+        ///          rdfs:label ?artistName .
+        ///          ?artist ?hometown ?city.
+        ///  ?city dbo:country ?country.
+        ///  ?country rdfs:label &apos;{0}&apos;@en.
+        ///  FILTER(lang(?artistName)=&apos;en&apos;)
+        ///}}
+        ///LIMIT 20.
+        /// </summary>
+        internal static string SearchArtistsByCountry {
+            get {
+                return ResourceManager.GetString("SearchArtistsByCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
         ///                        PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///                        PREFIX schema:    &lt;http://schema.org/&gt;
-        ///                        SELECT distinct ?artist ?artistName
+        ///                        SELECT DISTINCT ?artist ?artistName
         ///                        WHERE {{
         ///                        VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
         ///                            ?artist a ?type .
