@@ -11,18 +11,18 @@ var SongsList = React.createClass({
 		var createSongsRow = function(song) {
 			return (
 				<tr key={song.id}>
-					<td>{song.title}</td>
-					<td>{song.artist_name}</td>
+					<td className="songCell">{song.title}</td>
+					<td className="songCelltwo">{song.artist_name}</td>
 				</tr>
 			);
 		};
 
 		return (
 			<div>
-				<table className="table">
+				<table >
 					<thead>
-						<th>Title</th>
-						<th>Artist</th>
+						<th className="songCell m">Title</th>
+						<th className="songCelltwo">Artist</th>
 					</thead>
 					<tbody>
 						{this.props.songs.map(createSongsRow, this)}

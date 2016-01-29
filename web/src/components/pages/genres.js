@@ -1,33 +1,34 @@
 'use strict';
 
 var React = require ("react");
+var SongsApi = require('../api/songsApi');
+var GenresList= require('./genresList');
+
 
 var Genres = React.createClass({
-	getInitialState : function(){
-		return{
+	getInitialState: function() {
+		return {
 			genres: []
 		};
 	},
+
+	componentDidMount: function() {
+		if (this.isMounted()) {
+			console.log("component mounted");
+			var self = this;
+			SongsApi.getGenresList(function(response){
+				self.setState({ genres: response });
+			})
+		}
+	},
+
 	render: function(){
 		return (
-	        <div className="mood">
-			salut
+	        <div>
+				<GenresList genres={this.state.genres} />
 	        </div>
 		);
 	}
-	// componentWillMount: function(){
-	// 	this.setState({ genres: GenresApi.getGenres()});
-	// },
-
-	// render: function(){
-	// 	var createGenre =  function(genre){
-	// 		return(
-	// 			<div key={genre.id}>
-	// 				<p>{genre.content}</p>
-	// 			</div>
-	// 		);
-	// 	};
-//{this.state.genres.map(createGenre, this)}
 });
 
 module.exports = Genres;

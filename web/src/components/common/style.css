@@ -1,13 +1,24 @@
 body{
-	margin:0;
-}
-
-a{
-	text-decoration: none;
+	margin: 0;
 }
 
 button{
 	outline:none;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 .all{
@@ -20,14 +31,14 @@ button{
 	height: 8vh;
 	background-color: rgb(77,77,77);
 	position: relative;
--webkit-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	-webkit-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
 }
 
 .logoHolder{
 	position:relative;
-	height: 70%;
+	height: 80%;
 	margin-left: 15%;
 }
 
@@ -50,13 +61,11 @@ box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
 	height: 88vh;
 	width: 80%;
 	float:left;
-	background-color: white;
-}
-.myMusic{
-	height: 88vh;
-	width: 20%;
-	float:left;
-	//background-color: rgb(250,224,210);
+	background-image: url('https://s-media-cache-ak0.pinimg.com/originals/5e/a7/d0/5ea7d0297aaa9d88282db02a6149297d.jpg');
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: -25% -50%;
+	position: relative;
 }
 
 .boxUnderHeader{
@@ -94,8 +103,8 @@ box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
 	outline: none;
 	border: 1px solid rgb(200,200,200);
 	border-right: none;
-	margin-top:10px;
-	display:inline;
+	margin-top: 10px;
+	display: inline;
 }
 
 .searchForm{
@@ -115,12 +124,169 @@ box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
 	border-left:none;
 }
 
-.angel{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
-
 .buttonsHolder{
 	margin-left: 15%;
+}
+
+.genre{
+	width: 50px;
+	height: 50px;
+	background-color: green;
+	float: left;
+	margin: 5px;
+}
+
+.moodsBox{
+	width: 50%;
+	height: 50%;
+	margin-left: 30%;
+	margin-top: 10vh;
+}
+
+.mood{
+	float:left;
+	width: 48%;
+	height: 35vh;
+	margin-top: 1%;
+	margin-left: 1%;
+	border: 1px solid rgb(200,200,200);
+	box-shadow: 0px 0px 0px 15px white inset;
+	border-radius: 20px;
+	text-align: center;
+	-webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/60/34/34/603434692509af1e8f004f213d3d5e9b.jpg');
+    color: rgb(77,77,77);
+    background-size: 100% ;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    background-color: white;
+}
+
+.mood:hover{
+	-ms-transform: scale(0.8,0.8); /* IE 9 */
+    -webkit-transform: scale(0.8,0.8); /* Safari */
+    transform: scale(0.8,0.8);
+    font-weight: bold;
+}
+
+.moodSpan{
+	margin-top: 45%;
+	-ms-transform: translate(0,-50%); /* IE 9 */
+   	-webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+}
+
+.genresBox{
+	width: 75%;
+	height: 75vh;
+	margin-left: 20%;
+	margin-top: 7vh;
+	overflow-y: scroll; 
+	overflow-x: hidden;
+}
+
+.genre{
+	float: left;
+	height: 10vh;
+	min-height: 10vh;
+	width: 15%;
+	margin-top: 0.5%;
+	margin-left: 0.5%;
+	border: 1px solid rgb(180,180,180);
+	box-shadow: 0px 0px 0px 5px white inset;
+	border-radius: 7px;
+	position: relative;
+    color: rgb(90,90,90);
+    background-size: 200% ;
+    background-position: 60% 30%;
+    background-repeat: no-repeat;
+    background-color: white;
+    word-wrap: break-word;
+    cursor: pointer;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/236x/5e/a7/d0/5ea7d0297aaa9d88282db02a6149297d.jpg');
+}
+
+@keyframes  random {
+    15% { background-color: rgba(230,230,230, 0.5); }
+    30% { background-color: yellow; } 
+    45% { background-color: green; } 
+    60% { background-color: blue; }
+    75% { background-color: white; }  
+}
+
+.genre:hover{
+	-ms-transform: scale(0.8, 0.8); /* IE 9 */
+    -webkit-transform: scale(0.8, 0.8); /* Safari */
+    transform: scale(0.8, 0.8);
+    font-weight: bold;
+    outline: inherit;
+
+}
+
+.genreSpan{
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    position: absolute;
+    font-size: 15px;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translateX(-50%) translateY(-50%);
+        text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white; 
+}
+
+.popular{
+	position: absolute;
+	right: -45px;
+	top: 45%;
+	-webkit-transform: rotate(-90deg);  /* to support Safari and Android browser */
+    -ms-transform: rotate(-90deg);      /* to support IE 9 */
+    transform: rotate(-90deg);
+    background-color: rgb(25,25,25);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    color: white;
+    padding: 4px 28px;
+}
+
+.myMusic{
+	height: 88vh;
+	width: 20%;
+	float:left;
+	background-color: rgb(40,40,40);
+	-webkit-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
+	overflow-y: scroll;
+	overflow-x: hidden; 
+}
+
+.songCell{
+	width: 50%;
+	margin-left: 2%;
+	padding-left: 10%;
+	border-top: 1px solid rgb(77,77,77);
+	border-right: 1px solid rgb(77,77,77);
+	color: rgb(150,150,150);
+}
+
+.songCelltwo{
+	width: 50%;
+	margin-left: 2%;
+	padding-left: 10%;
+	border-top: 1px solid rgb(77,77,77);
+	color: rgb(150,150,150);
+}
+
+.menuLinks{
+	color: white;
 }

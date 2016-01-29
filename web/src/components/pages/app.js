@@ -1,5 +1,3 @@
-
-
 var React = require('react');
 var Header = require('../common/header');
 var Menu = require('../common/menu');
@@ -18,6 +16,7 @@ var App = React.createClass({
 				</div>
 				<div className="content">
 					<RouteHandler/>
+					<label className="popular">Popular</label>
 				</div>
 				<MyMusic/>
 			</div>

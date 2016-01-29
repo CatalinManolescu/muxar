@@ -9,9 +9,9 @@ var Menu = React.createClass({
 		return (
 	        <div className="myMenu">
 		        <div className="buttonsHolder">
-					<div className="menuComponent"><Link to="app">genres</Link></div>
-		            <div className="menuComponent"><Link to="mood">mood</Link></div>
-		
+					<div className="menuComponent"><Link to="app" className="menuLinks">genres</Link></div>
+		            <div className="menuComponent"><Link to="mood"className="menuLinks"> mood</Link></div>
+					<div className="menuComponent"><Link to="recommendations" className="menuLinks"> surprise me</Link></div>
 		        </div>
 	        </div>
 		);

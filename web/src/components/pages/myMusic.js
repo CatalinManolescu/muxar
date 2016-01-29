@@ -13,16 +13,15 @@ var MyMusic = React.createClass({
 
 	componentDidMount: function() {
 		if (this.isMounted()) {
-			this.setState({ songs: SongsApi.getAllMySongs() });
+			this.setState({ songs: SongsApi.getAllMySongs()});
 		}
 	},
 
 	render: function(){
 		return (
-        <div className="myMusic">
-			<h1>My Songs</h1>
-				<SongsList songs={this.state.songs} />
-        </div>
+	        <div className="myMusic">
+					<SongsList songs={this.state.songs} />
+	        </div>
 		);
 	}
 });

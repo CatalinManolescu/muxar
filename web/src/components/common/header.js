@@ -2,6 +2,8 @@
 
 var React = require('react');
 var SearchForm = require("../pages/searchForm");
+var toastr = require('toastr');
+var SongsApi = require('../api/songsApi');
 
 var Header = React.createClass({
   getInitialState: function(){
@@ -19,7 +21,7 @@ var Header = React.createClass({
 
   searchTheItem:function(event){
       event.preventDefault();
-      console.log("ceva...");
+      var response = SongsApi.firstSearchByArtist(this.state.searchItem.search);
   },
 
 	render: function() {
@@ -27,7 +29,8 @@ var Header = React.createClass({
         <div className="myHeader">
           <div className="logoHolder">
               <img className="logo" src="images/logo.png" />
-              <SearchForm searchItem={this.state.searchItem}
+              <SearchForm 
+                  searchItem={this.state.searchItem}
                   onChange={this.setSearchItem}
                   onSave={this.searchTheItem}/>
           </div>
