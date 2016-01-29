@@ -3,8 +3,8 @@
  * @author Catalin Manolescu <cc.manolescu@gmail.com>
  */
 
-var RDFLocal = require('./../clients/RDFLocal');
-//var RDFLocal = require('./../clients/dbpediaRDFClient');//require('./../clients/RDFLocal');
+//var RDFLocal = require('./../clients/RDFLocal');
+var RDFLocal = require('./../clients/dbpediaRDFClient');
 
 var getObjectsFromResult = function(bindings) {
     var length = bindings.length;
@@ -31,7 +31,7 @@ var getAllGenres = function(req, res, next) {
     'where { '+
     '    ?genre a <http://dbpedia.org/ontology/MusicGenre>. ' +
     '    ?genre rdfs:name ?genreLabel ' +
-    //'    FILTER (lang(?genreLabel)="en") ' +
+    '    FILTER (lang(?genreLabel)="en") ' +
     '} LIMIT 100';
     
     RDFLocal.search.query(query).execute(function(err, resp){

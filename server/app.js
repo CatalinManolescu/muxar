@@ -5,10 +5,12 @@
 var restify = require('restify');
 fs = require('fs');
 var RDFLocal = require('./clients/RDFLocal');
-var authenticationManager = require('./controllers/authenticationManager');
+var authenticationManager = require('./services/authenticationManager');
 
 var rdfRoutes = require('./routes/rdfRoutes');
 var genreRoutes = require('./routes/genreRoutes');
+var proxyRoutes = require('./routes/proxyRoutes');
+var testRoutes = require('./routes/testRoute');
 
 
 if(!String.prototype.startsWith){
@@ -54,20 +56,15 @@ server.use(function(req, res, next){
 
 
 server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
+server.get({name: 'artists', path: '/api/artists'}, proxyRoutes.searchArtistsByName);
+server.get({name: 'artists_genres', path: '/api/artists/genres'}, proxyRoutes.searchGenresByArtist);
 
 server.get({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
 server.post({name: 'sparql', path: '/api/sparql'}, rdfRoutes.search);
 server.get({name: 'rdfinit', path: '/api/rdf/init'}, rdfRoutes.initRDF);
 
 /* test routes */
-server.get({name: 'bamby', path: '/api/bamby'}, function(req, res, next){
-    res.send('OK.');
-    return next();
-});
-
-server.get({name: 'bambe', path: '/api/bambe'}, function(req, res, next){
-    return next('bamby')
-});
+server.get('/api/test/spot', testRoutes.spot);
 
 server.get('/.*', restify.serveStatic({
     directory: config.path.public,

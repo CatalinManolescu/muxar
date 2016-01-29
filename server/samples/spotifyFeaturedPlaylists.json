@@ -1,0 +1,372 @@
+{
+  "message" : "Burning the midnight oil?",
+  "playlists" : {
+    "href" : "https://api.spotify.com/v1/browse/featured-playlists?timestamp=2015-12-01T00:00:00&offset=0&limit=20",
+    "items" : [ {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/2ujjMpFriZ2nayLmrD1Jgl"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/2ujjMpFriZ2nayLmrD1Jgl",
+      "id" : "2ujjMpFriZ2nayLmrD1Jgl",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/6e4deac05605100260556b6001cd847d5a0363d3",
+        "width" : 300
+      } ],
+      "name" : "Deep Focus",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "u7Bv1Nqi8r2S4kS5YUxIyef9lKUvPw3xQME+HPy5AqddAbQ8hbpFL3ZfH1rjO9fx",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/2ujjMpFriZ2nayLmrD1Jgl/tracks",
+        "total" : 115
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:2ujjMpFriZ2nayLmrD1Jgl"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/5UMleIsaNDK5LzZRbrbcXr"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/5UMleIsaNDK5LzZRbrbcXr",
+      "id" : "5UMleIsaNDK5LzZRbrbcXr",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/3c0582c197c3f97f93e61e07204cdd8bcb9a3bb5",
+        "width" : 300
+      } ],
+      "name" : "Sleep",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "jrTtHVyKopweycpEpzQ4hWRcT2IhdAewAbh1qV4dfAFZkYnojoLGckbY0LBj/Qoa",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/5UMleIsaNDK5LzZRbrbcXr/tracks",
+        "total" : 32
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:5UMleIsaNDK5LzZRbrbcXr"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/18BqSC2cMSLIQrFwvYT5gv"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/18BqSC2cMSLIQrFwvYT5gv",
+      "id" : "18BqSC2cMSLIQrFwvYT5gv",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/6a7e83456e2404af7271a481cdd7a48d7875a849",
+        "width" : 300
+      } ],
+      "name" : "Chilled R&B",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "mdcSmZs5Bn46e16lHleSylMMQ6c4huruPfY6ZK5SUkglGdSIA+aL+YkQA+HZqhzD",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/18BqSC2cMSLIQrFwvYT5gv/tracks",
+        "total" : 50
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:18BqSC2cMSLIQrFwvYT5gv"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/5O2ERf8kAYARVVdfCKZ9G7"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/5O2ERf8kAYARVVdfCKZ9G7",
+      "id" : "5O2ERf8kAYARVVdfCKZ9G7",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/23daf65c6e6516dcbfae24e1cd4e94cdd1d2ae55",
+        "width" : 300
+      } ],
+      "name" : "Coffee Table Jazz",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "PZdk5ytS/epRyv86Oz41EawymA7/Nvz8cXgwo8CAAxpvUvIL12NSe88fIATensfP",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/5O2ERf8kAYARVVdfCKZ9G7/tracks",
+        "total" : 47
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:5O2ERf8kAYARVVdfCKZ9G7"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/3InXOgDxJPeA05l6rQyDoe"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/3InXOgDxJPeA05l6rQyDoe",
+      "id" : "3InXOgDxJPeA05l6rQyDoe",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/b60b3ed2235fc72eb32eff8166d938d8522bd7b1",
+        "width" : 300
+      } ],
+      "name" : "Relax & Unwind",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "/a/S66BxJVzXe9wmd2UbAmjdt5cVFxXWdcd6XC9oG/DfFz40QvKGk8xTueCAlGxq",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/3InXOgDxJPeA05l6rQyDoe/tracks",
+        "total" : 86
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:3InXOgDxJPeA05l6rQyDoe"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/5lyjV1xN0eVz35QXezqebv"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/5lyjV1xN0eVz35QXezqebv",
+      "id" : "5lyjV1xN0eVz35QXezqebv",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/067d396d50978532013b16c8c6ff87aa4dfc4e6a",
+        "width" : 300
+      } ],
+      "name" : "Nature Noise",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "K3+FxUwQhYiRSNwNI7R74h77t1XNNfo0xgU6uxl9PyOLOCofdUzyZWD/WKLGsCJe",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/5lyjV1xN0eVz35QXezqebv/tracks",
+        "total" : 31
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:5lyjV1xN0eVz35QXezqebv"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/0ExbFrTy6ypLj9YYNMTnmd"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/0ExbFrTy6ypLj9YYNMTnmd",
+      "id" : "0ExbFrTy6ypLj9YYNMTnmd",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/465f06c1a79acac12ad030b6c7dccd1b42367b0f",
+        "width" : 300
+      } ],
+      "name" : "Intense Studying",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "FK8YriyiVMgfVuw5K/OJh/EQKAMlVZ2wtTyXQf+RildPCWealwphur6b3qRtOnhg",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/0ExbFrTy6ypLj9YYNMTnmd/tracks",
+        "total" : 100
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:0ExbFrTy6ypLj9YYNMTnmd"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/2nLBLpHHD8nvUcpr6vmRsR"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/2nLBLpHHD8nvUcpr6vmRsR",
+      "id" : "2nLBLpHHD8nvUcpr6vmRsR",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/fe1757069b62344cb1cc1f71e9e7157eca4bbf12",
+        "width" : 300
+      } ],
+      "name" : "Love, Sex & Water",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "WGU9KDZREZUEmQK23MNMpd91tONf3FiB3nh8BRjk2VWvmbR7UjkFu7RMT/Q/y642",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/2nLBLpHHD8nvUcpr6vmRsR/tracks",
+        "total" : 50
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:2nLBLpHHD8nvUcpr6vmRsR"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/0A7bINoB9qO8wCQQVHm4Ot"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/0A7bINoB9qO8wCQQVHm4Ot",
+      "id" : "0A7bINoB9qO8wCQQVHm4Ot",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/7bcb4a278c2475aefc40d4a2f16112f171456499",
+        "width" : 300
+      } ],
+      "name" : "Deep Sleep",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "eYRJJ4wxpia9cJDMsW8h62ApOF0ErB85/2Nqs1GqHZXxgm3OUb5MR5PhH/djNfBm",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/0A7bINoB9qO8wCQQVHm4Ot/tracks",
+        "total" : 25
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:0A7bINoB9qO8wCQQVHm4Ot"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/4LHUEhnFViR3mJUI8oKeT9"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/4LHUEhnFViR3mJUI8oKeT9",
+      "id" : "4LHUEhnFViR3mJUI8oKeT9",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/70a5d70d3b3e3fcb1a5e00c69a8387ce02a5d95a",
+        "width" : 300
+      } ],
+      "name" : "The Sleep Machine: Rainforest",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "5p3IxpRVDkYTCB9duke5oOFvXPRowCubm2+eL68KP8SWcig/feSf93bBoBBl8Ps0",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/4LHUEhnFViR3mJUI8oKeT9/tracks",
+        "total" : 11
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:4LHUEhnFViR3mJUI8oKeT9"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/5tnBjatmVR3VtfVMOpS87h"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/5tnBjatmVR3VtfVMOpS87h",
+      "id" : "5tnBjatmVR3VtfVMOpS87h",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/921be38d47e29205f83fca75c4a8b88caed59501",
+        "width" : 300
+      } ],
+      "name" : "Calm Down",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "vg0oT094WTppeMM2ZYfchgXkc92wXQ2K/m7gISogwsVGglNP7yYtvWRvCaZTXG+2",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/5tnBjatmVR3VtfVMOpS87h/tracks",
+        "total" : 67
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:5tnBjatmVR3VtfVMOpS87h"
+    }, {
+      "collaborative" : false,
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/spotify/playlist/6GvCh16nvDwq9zS6EKaZtM"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/6GvCh16nvDwq9zS6EKaZtM",
+      "id" : "6GvCh16nvDwq9zS6EKaZtM",
+      "images" : [ {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/b5d81ba1b1c06b5beff7beb60da272cff2f7b5b4",
+        "width" : 300
+      } ],
+      "name" : "Hawaiian Dreams",
+      "owner" : {
+        "external_urls" : {
+          "spotify" : "http://open.spotify.com/user/spotify"
+        },
+        "href" : "https://api.spotify.com/v1/users/spotify",
+        "id" : "spotify",
+        "type" : "user",
+        "uri" : "spotify:user:spotify"
+      },
+      "public" : null,
+      "snapshot_id" : "u7MzrBM5b2fk8nos55xc/hHlv/Mzl/35XyNUXxq1tY4qetoe6VYgpUxAwsuuwQgt",
+      "tracks" : {
+        "href" : "https://api.spotify.com/v1/users/spotify/playlists/6GvCh16nvDwq9zS6EKaZtM/tracks",
+        "total" : 28
+      },
+      "type" : "playlist",
+      "uri" : "spotify:user:spotify:playlist:6GvCh16nvDwq9zS6EKaZtM"
+    } ],
+    "limit" : 20,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 12
+  }
+}
