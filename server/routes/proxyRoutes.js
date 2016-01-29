@@ -48,7 +48,7 @@ var searchArtists = function(req, res, next) {
     if (req.query.genres) {
         return searchArtistsByGenre(req,res,next);
     } else if (req.query.name) {
-        return searchArtistsByName(sreq,res,next);
+        return searchArtistsByName(req,res,next);
     }
 
     return next();
