@@ -34,6 +34,10 @@ namespace Muxar.BrightStarDb.Helpers
             {
                 artistDto.Thumbnail = result.Value(SparqlResources.Thumbnail)?.ToString();
             }
+            if (result.HasValue(SparqlResources.Abstract))
+            {
+                artistDto.Abstract = result.Value(SparqlResources.Abstract)?.ToString();
+            }
         }
     }
 }

@@ -230,6 +230,7 @@
     <Compile Include="Controllers\api\RegionsController.cs" />
     <Compile Include="Controllers\api\UsersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Helpers\ArtistsHelper.cs" />
     <Compile Include="Helpers\Validators.cs" />
     <Compile Include="Controllers\api\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

@@ -530,9 +530,44 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:Muxar.Resources.input">
+        <member name="P:Muxar.Resources.ArtistLabel">
+            <summary>
+              Looks up a localized string similar to artistLabel.
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.ArtistName">
+            <summary>
+              Looks up a localized string similar to artistName.
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Band">
+            <summary>
+              Looks up a localized string similar to  (band).
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Input">
             <summary>
               Looks up a localized string similar to {0} must have a value!.
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Musician">
+            <summary>
+              Looks up a localized string similar to  (musician).
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Producer">
+            <summary>
+              Looks up a localized string similar to  (producer).
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Singer">
+            <summary>
+              Looks up a localized string similar to  (singer).
+            </summary>
+        </member>
+        <member name="P:Muxar.Resources.Songwriter">
+            <summary>
+              Looks up a localized string similar to  (songwriter).
             </summary>
         </member>
     </members>

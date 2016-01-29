@@ -12,7 +12,7 @@ namespace Muxar.Controllers.api
     public class ArtistsController : BaseApiController
     {
         private readonly DbpediaEndpoint dbpediaEndpoint;
-        private EchonestEndpoint echonestEndpoint;
+        private readonly EchonestEndpoint echonestEndpoint;
 
         public ArtistsController()
         {
@@ -45,7 +45,7 @@ namespace Muxar.Controllers.api
         public IHttpActionResult Search(string artistLabel)
         {
             if (Validators.StringInputValidator(artistLabel))
-                return BadRequest(string.Format(Resources.input, "artistLabel"));
+                return BadRequest(string.Format(Resources.Input, Resources.ArtistLabel));
 
             var result = dbpediaEndpoint.GetArtistsWithName(artistLabel);
             return Ok(result);
@@ -61,11 +61,14 @@ namespace Muxar.Controllers.api
         public async Task<IHttpActionResult> SearchDetails(string artistName)
         {
             if (Validators.StringInputValidator(artistName))
-                return BadRequest(string.Format(Resources.input, "artistName"));
+                return BadRequest(string.Format(Resources.Input, Resources.ArtistName));
+            var artistRefinedName = ArtistsHelper.RefineArtistName(artistName);
 
-            var artist = await echonestEndpoint.SearchArtist(artistName);
+            var artist = await echonestEndpoint.SearchArtist(artistRefinedName);
             await echonestEndpoint.FindWebsite(artist);
+            artist.Name = artistName;
             dbpediaEndpoint.GetArtistByNameAndWebsite(artist);
+
             return Ok(artist);
         }
     }

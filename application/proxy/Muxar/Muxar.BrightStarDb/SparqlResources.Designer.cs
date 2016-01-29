@@ -61,6 +61,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to abstract.
+        /// </summary>
+        internal static string Abstract {
+            get {
+                return ResourceManager.GetString("Abstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to artist.
         /// </summary>
         internal static string Artist {
@@ -161,16 +170,15 @@ namespace Muxar.BrightStarDb {
         ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
         ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
         ///PREFIX schema:    &lt;http://schema.org/&gt;
-        ///SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail)
+        ///SELECT distinct ?artist ?artistName ?wiki ?homepage min(?thumbnail) ?abstract
         ///WHERE {{
         ///	VALUES ?type {{ schema:MusicGroup dbo:MusicalArtist }}
         ///	VALUES ?website {{ dbp:website foaf:homepage }}
         ///		?artist a ?type .
         ///		?artist rdfs:label ?artistName.
-        ///	OPTIONAL {{
-        ///		?artist ?website ?homepage .
-        ///		?artist foaf:isPrimaryTopicOf ?wiki .
-        ///		?artist dbo:thumbnail ?thumbnail        /// [rest of string was truncated]&quot;;.
+        ///		?artist dbo:abstract ?abstract .
+        ///		?artist dbo:thumbnail ?thumbnail .
+        ///		?artist foaf:isPrimaryTopicOf ?wiki  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SearchArtistByNameAndWebsite {
             get {

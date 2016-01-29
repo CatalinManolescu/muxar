@@ -21,7 +21,7 @@ namespace Muxar.Controllers.api
         public IHttpActionResult GetByArtist(string artistLabel)
         {
             if (Validators.StringInputValidator(artistLabel))
-                return BadRequest(string.Format(Resources.input, "artistLabel"));
+                return BadRequest(string.Format(Resources.Input, "artistLabel"));
 
             var result = dbpediaEndpoint.GetGenresByArtist(artistLabel);
 

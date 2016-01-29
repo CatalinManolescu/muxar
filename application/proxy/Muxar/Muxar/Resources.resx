@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="input" xml:space="preserve">
+  <data name="ArtistLabel" xml:space="preserve">
+    <value>artistLabel</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>artistName</value>
+  </data>
+  <data name="Band" xml:space="preserve">
+    <value> (band)</value>
+  </data>
+  <data name="Input" xml:space="preserve">
     <value>{0} must have a value!</value>
+  </data>
+  <data name="Musician" xml:space="preserve">
+    <value> (musician)</value>
+  </data>
+  <data name="Producer" xml:space="preserve">
+    <value> (producer)</value>
+  </data>
+  <data name="Singer" xml:space="preserve">
+    <value> (singer)</value>
+  </data>
+  <data name="Songwriter" xml:space="preserve">
+    <value> (songwriter)</value>
   </data>
 </root>

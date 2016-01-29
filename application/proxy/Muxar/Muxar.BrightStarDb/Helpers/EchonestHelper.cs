@@ -21,7 +21,7 @@ namespace Muxar.BrightStarDb.Helpers
                 artist = new ArtistDto
                 {
                     EchonestId = result[EchonestResources.Id].ToString(),
-                    Name = result[EchonestResources.Name].ToString()
+                    EchonestName = result[EchonestResources.Name].ToString()
                 };
             return artist;
         }

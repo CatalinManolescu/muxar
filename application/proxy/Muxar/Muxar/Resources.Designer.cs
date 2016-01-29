@@ -61,11 +61,74 @@ namespace Muxar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to artistLabel.
+        /// </summary>
+        internal static string ArtistLabel {
+            get {
+                return ResourceManager.GetString("ArtistLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to artistName.
+        /// </summary>
+        internal static string ArtistName {
+            get {
+                return ResourceManager.GetString("ArtistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (band).
+        /// </summary>
+        internal static string Band {
+            get {
+                return ResourceManager.GetString("Band", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} must have a value!.
         /// </summary>
-        internal static string input {
+        internal static string Input {
             get {
-                return ResourceManager.GetString("input", resourceCulture);
+                return ResourceManager.GetString("Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (musician).
+        /// </summary>
+        internal static string Musician {
+            get {
+                return ResourceManager.GetString("Musician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (producer).
+        /// </summary>
+        internal static string Producer {
+            get {
+                return ResourceManager.GetString("Producer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (singer).
+        /// </summary>
+        internal static string Singer {
+            get {
+                return ResourceManager.GetString("Singer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (songwriter).
+        /// </summary>
+        internal static string Songwriter {
+            get {
+                return ResourceManager.GetString("Songwriter", resourceCulture);
             }
         }
     }
