@@ -85,5 +85,13 @@ namespace Muxar.BrightStarDb.Endpoints
                         .Replace(SparqlResources.EnLangQualifier, string.Empty));
             return result;
         }
+
+        public void GetSongByNameAndArtist(SongDto songDto)
+        {
+            var query = string.Format(SparqlResources.GetSongByNameAndArtistName, songDto.Name.ToLower(),
+                songDto.ArtistName.ToLower());
+            var resultSet = sparqlRemoteEndpoint.QueryWithResultSet(query);
+            DbpediaHelper.UpdateSongData(resultSet, songDto);
+        }
     }
 }

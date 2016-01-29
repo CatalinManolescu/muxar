@@ -226,6 +226,7 @@
     <Compile Include="Controllers\api\PlaylistsController.cs" />
     <Compile Include="Controllers\api\BaseApiController.cs" />
     <Compile Include="Controllers\api\GenresController.cs" />
+    <Compile Include="Controllers\api\SongsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\RegionsController.cs" />
     <Compile Include="Controllers\api\UsersController.cs" />

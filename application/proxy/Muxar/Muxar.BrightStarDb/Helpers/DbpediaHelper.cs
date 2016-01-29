@@ -39,5 +39,16 @@ namespace Muxar.BrightStarDb.Helpers
                 artistDto.Abstract = result.Value(SparqlResources.Abstract)?.ToString();
             }
         }
+
+        public static void UpdateSongData(SparqlResultSet resultSet, SongDto songDto)
+        {
+            var result = resultSet.Results.FirstOrDefault();
+            if (result == null) return;
+            songDto.Id = result.Value(SparqlResources.Song).ToString();
+            if (result.HasValue(SparqlResources.Thumbnail))
+            {
+                songDto.Thumbnail = result.Value(SparqlResources.Thumbnail)?.ToString();
+            }
+        }
     }
 }

@@ -507,12 +507,41 @@
             <param name="artistName"></param>
             <returns></returns>
         </member>
+        <member name="M:Muxar.Controllers.api.PlaylistsController.GetByArtist(System.String)">
+             <summary>
+             builds a playlist starting from the echonest id of an artist;
+            it resurns a list of Songs, which include spotifyId of each song.
+            A simple example of response would be:
+            [{
+                "Id": null,
+                "SpotifyId": "spotify:track:520DbYnofadcEwvlfggev0",
+                "EchonestId": "SOPPGRU131C39A8195",
+                "Name": "Piledriver waltz",
+                "ArtistEchonestId": "ARGOA5P1187FB3647B",
+                "ArtistName": "Alex Turner",
+                "Thumbnail": null
+            }]
+            To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+            with each entity
+             </summary>
+             <param name="artistUri"></param>
+             <returns></returns>
+        </member>
         <member name="M:Muxar.Controllers.api.GenresController.GetByArtist(System.String)">
             <summary>
             get genres of an artist
             </summary>
             <param name="artistLabel">string containing artist property "label"</param>
             <returns>collection of genres as strings</returns>
+        </member>
+        <member name="M:Muxar.Controllers.api.SongsController.AssociateWithDbpedia(Muxar.EntitiesDto.SongDto)">
+             <summary>
+            Find dbpedia association of a song and also provide a thumbnail if such exists.
+            Be aware that not all songs have a dbpedia resource Id!
+            The result is the Song entity, filled (or not) with missing links.
+             </summary>
+             <param name="song"></param>
+             <returns></returns>
         </member>
         <member name="T:Muxar.Resources">
             <summary>

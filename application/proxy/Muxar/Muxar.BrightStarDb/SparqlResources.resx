@@ -166,6 +166,24 @@ FILTER(lang(?genreLabel) = 'en')
 }}
 LIMIT 100</value>
   </data>
+  <data name="GetSongByNameAndArtistName" xml:space="preserve">
+    <value>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
+PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+PREFIX schema:    &lt;http://schema.org/&gt;
+SELECT DISTINCT ?song MIN(?title) AS ?title MIN(?thumbnail) AS ?thumbnail
+WHERE {{
+  ?song a dbo:Single .
+  ?song dbp:title ?title .
+  ?song dbp:artist ?artist .
+  ?artist rdfs:label ?artistLabel .
+OPTIONAL  {{
+  ?song dbo:thumbnail ?thumbnail
+}}
+FILTER (CONTAINS(LCASE(STR(?title)), '{0}')) .
+FILTER(CONTAINS(LCASE(STR(?artistLabel)), '{1}'))
+}}
+LIMIT 1</value>
+  </data>
   <data name="Homepage" xml:space="preserve">
     <value>homepage</value>
   </data>
@@ -228,6 +246,9 @@ LIMIT 20</value>
                         GROUP BY ?artist ?artistName
                         ORDER BY ?artistName
                         LIMIT 20</value>
+  </data>
+  <data name="Song" xml:space="preserve">
+    <value>song</value>
   </data>
   <data name="Thumbnail" xml:space="preserve">
     <value>thumbnail</value>

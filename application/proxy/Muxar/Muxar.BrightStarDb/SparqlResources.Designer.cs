@@ -158,6 +158,30 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;        
+        ///PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt; 
+        ///PREFIX schema:    &lt;http://schema.org/&gt;
+        ///SELECT DISTINCT ?song MIN(?title) AS ?title MIN(?thumbnail) AS ?thumbnail
+        ///WHERE {{
+        ///  ?song a dbo:Single .
+        ///  ?song dbp:title ?title .
+        ///  ?song dbp:artist ?artist .
+        ///  ?artist rdfs:label ?artistLabel .
+        ///OPTIONAL  {{
+        ///  ?song dbo:thumbnail ?thumbnail
+        ///}}
+        ///FILTER (CONTAINS(LCASE(STR(?title)), &apos;{0}&apos;)) .
+        ///FILTER(CONTAINS(LCASE(STR(?artistLabel)), &apos;{1}&apos;))
+        ///}}
+        ///LIMIT [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string GetSongByNameAndArtistName {
+            get {
+                return ResourceManager.GetString("GetSongByNameAndArtistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to homepage.
         /// </summary>
         internal static string Homepage {
@@ -224,6 +248,15 @@ namespace Muxar.BrightStarDb {
         internal static string SearchArtistsByLabel {
             get {
                 return ResourceManager.GetString("SearchArtistsByLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to song.
+        /// </summary>
+        internal static string Song {
+            get {
+                return ResourceManager.GetString("Song", resourceCulture);
             }
         }
         
