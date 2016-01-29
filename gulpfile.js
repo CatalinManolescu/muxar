@@ -18,7 +18,8 @@ var config = {
 		images: './web/src/images/*',
 		css: [
       		'node_modules/bootstrap/dist/css/bootstrap.min.css',
-      		'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+      		'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+      		'node_modules/toastr/toastr.css'
     	],
     	myCss : './web/src/components/common/*.css',
 		dist: './web/public',

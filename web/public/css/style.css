@@ -212,7 +212,7 @@ button{
 }
 
 @keyframes  random {
-    15% { background-color: rgba(230,230,230); } 
+    15% { background-color: rgba(230,230,230, 0.5); }
     30% { background-color: yellow; } 
     45% { background-color: green; } 
     60% { background-color: blue; }
