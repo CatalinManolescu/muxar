@@ -13,7 +13,34 @@ var Mood = React.createClass({
 	},
 
 	handleClick: function(index){
-		console.log("clickkkkkkkkk");
+		console.log(index);
+		var self = this;
+		/*switch(index){
+			case 'Positive':
+				SongsApi.getPlaylistByMood("playful", function(response){
+		            self.transitionTo('playlists', {playlist: response});
+		            pubsub.publish('playlists', response);
+		          });
+				break;
+			case 'Blue':
+				SongsApi.getPlaylistByMood("sad", function(response){
+		            self.transitionTo('playlists', {playlist: response});
+		            pubsub.publish('playlists', response);
+		          });
+				break;
+			case 'Energetic':
+				SongsApi.getPlaylistByMood("energetic", function(response){
+		            self.transitionTo('playlists', {playlist: response});
+		            pubsub.publish('playlists', response);
+		          });
+				break;
+			case 'Chill':
+				SongsApi.getPlaylistByMood("calming", function(response){
+		            self.transitionTo('playlists', {playlist: response});
+		            pubsub.publish('playlists', response);
+		          });
+				break;
+		}*/
 	},
 
 	componentDidMount: function() {
@@ -25,7 +52,7 @@ var Mood = React.createClass({
 	render: function(){
 		return (
 	        <div className="moodsBox">
-				<MoodsList moods={this.state.moods} />
+				<MoodsList moods={this.state.moods} click={this.handleClick} />
 	        </div>
 		);
 	}

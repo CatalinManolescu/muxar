@@ -87,9 +87,33 @@ var searchGenresByArtist = function(req, res, next) {
     return next();
 };
 
+var searchPlaylists = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    if (req.query.echonest) {
+        return searchPlaylistsByArtist(req,res,next);
+    } 
+
+    return next();
+};
+
+var searchPlaylistsByArtist = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Playlists/GetByArtist?artistUri=' + req.query.echonest + '&limit=' + limit;
+    request.get({
+        url: url
+    }, function (error, response, body) {
+        if (error) {
+            res.send(500,{error:error});
+        } else {
+            res.send(body);
+        }
+    });
+
+    return next();
+};
 
 
-
+module.exports.searchPlaylists = searchPlaylists;
 module.exports.searchArtists = searchArtists;
 module.exports.getArtistByName = getArtistByName;
 module.exports.searchGenresByArtist = searchGenresByArtist;

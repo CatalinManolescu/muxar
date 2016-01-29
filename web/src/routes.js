@@ -11,6 +11,7 @@ var routes = (
 	<Route name="app" path="/" handler={require("./components/pages/app")}>
 		<DefaultRoute handler={require("./components/pages/genres")}/>
 		<Route name="mood" handler={require("./components/pages/mood")}/>
+		<Route name="surprise" handler={require("./components/pages/surpriseMe")}/>
 		<Route name="recommendations" handler={require("./components/pages/recommendations")}/>
 	</Route>
 );
