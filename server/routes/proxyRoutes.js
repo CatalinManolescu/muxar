@@ -10,7 +10,8 @@ var config = {
 };
 
 var searchArtistsByName = function(req, res, next) {
-    var url = config.base_url + 'api/Artists/Search?artistLabel=' + req.params.name + '&limit=' + req.params.limit ? req.params.limit : 10;
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Artists/Search?artistLabel=' + req.params.name + '&limit=' + limit;
     request.get({
         url: url
     }, function (error, response, body) {
@@ -25,7 +26,8 @@ var searchArtistsByName = function(req, res, next) {
 };
 
 var searchGenresByArtist = function(req, res, next) {
-    var url = config.base_url + 'api/Genres/GetByArtist?artistLabel=' + req.params.name + '&limit=' + req.params.limit ? req.params.limit : 10;
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Genres/GetByArtist?artistLabel=' + req.params.name + '&limit=' + limit;
     request.get({
         url: url
     }, function (error, response, body) {

@@ -3,8 +3,8 @@
  * @author Catalin Manolescu <cc.manolescu@gmail.com>
  */
 
-//var RDFLocal = require('./../clients/RDFLocal');
-var RDFLocal = require('./../clients/dbpediaRDFClient');
+var RDFLocal = require('./../clients/RDFLocal');
+//var RDFLocal = require('./../clients/dbpediaRDFClient');
 
 var getObjectsFromResult = function(bindings) {
     var length = bindings.length;
