@@ -61,6 +61,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;type=artist-description.
+        /// </summary>
+        internal static string ArtistDescriptionType {
+            get {
+                return ResourceManager.GetString("ArtistDescriptionType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to artist_id.
         /// </summary>
         internal static string ArtistId {
@@ -102,6 +111,15 @@ namespace Muxar.BrightStarDb {
         internal static string Artists {
             get {
                 return ResourceManager.GetString("Artists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;description=.
+        /// </summary>
+        internal static string DescriptionPath {
+            get {
+                return ResourceManager.GetString("DescriptionPath", resourceCulture);
             }
         }
         
@@ -169,6 +187,15 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;mood=.
+        /// </summary>
+        internal static string MoodPath {
+            get {
+                return ResourceManager.GetString("MoodPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to name.
         /// </summary>
         internal static string Name {
@@ -228,6 +255,24 @@ namespace Muxar.BrightStarDb {
         internal static string SearchArtist {
             get {
                 return ResourceManager.GetString("SearchArtist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;song_id=.
+        /// </summary>
+        internal static string SongPath {
+            get {
+                return ResourceManager.GetString("SongPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;type=song-radio.
+        /// </summary>
+        internal static string SongRadioType {
+            get {
+                return ResourceManager.GetString("SongRadioType", resourceCulture);
             }
         }
         

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 
 namespace Muxar.BrightStarDb.Helpers
@@ -8,6 +7,7 @@ namespace Muxar.BrightStarDb.Helpers
     {
         private const string EchonestEndpointUri = "EchonestEndpointUri";
         private const string EchonestApiKey = "EchonestApiKey";
+
         public static Uri GenerateSearchUri(string artistName)
         {
             var uriString =
@@ -33,7 +33,7 @@ namespace Muxar.BrightStarDb.Helpers
                 $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
                 $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
                 $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
-                $"{EchonestResources.ArtistRadioType}{EchonestResources.TracksBucket}" +
+                $"{EchonestResources.TracksBucket}{EchonestResources.ArtistRadioType}" +
                 $"{EchonestResources.ArtistPath}{artists}";
             var uri = new Uri(uriString);
             return uri;
@@ -45,8 +45,37 @@ namespace Muxar.BrightStarDb.Helpers
                 $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
                 $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
                 $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
-                $"{EchonestResources.GenreRadioType}{EchonestResources.TracksBucket}" +
+                $"{EchonestResources.TracksBucket}{EchonestResources.GenreRadioType}" +
                 $"{EchonestResources.GenrePath}{genre}";
+            var uri = new Uri(uriString);
+            return uri;
+        }
+
+        public static Uri GeneratePlaylistByMoodAndDecadeUri(string mood, string decade)
+        {
+            var uriString =
+                $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
+                $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
+                $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
+                $"{EchonestResources.TracksBucket}{EchonestResources.ArtistDescriptionType}" +
+                $"{EchonestResources.MoodPath}{mood}";
+
+            if (!string.IsNullOrEmpty(decade))
+            {
+                uriString = $"{uriString}{EchonestResources.DescriptionPath}{decade}";
+            }
+            var uri = new Uri(uriString);
+            return uri;
+        }
+
+        public static Uri GeneratePlaylistBySong(string song)
+        {
+            var uriString =
+               $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
+               $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
+               $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
+               $"{EchonestResources.TracksBucket}{EchonestResources.SongRadioType}" +
+               $"{EchonestResources.SongPath}{song}";
             var uri = new Uri(uriString);
             return uri;
         }
