@@ -61,7 +61,7 @@ server.get({name: 'genres', path: '/api/genres'}, genreRoutes.getAllGenres);
 server.get({name: 'artists', path: '/api/artists'}, proxyRoutes.searchArtists);
 server.get({name: 'artist', path: '/api/artists/:artist'}, proxyRoutes.getArtistByName);
 server.get({name: 'artist_genres', path: '/api/artists/:artist/genres'}, proxyRoutes.searchGenresByArtist);
-server.get({name: 'regions', path: '/api/regions'}, proxyRoutes.searchGenresByArtist);
+server.get({name: 'regions', path: '/api/regions'}, proxyRoutes.searchRegions);
 server.get({name: 'playlists', path: '/api/playlists'}, proxyRoutes.searchPlaylists);
 server.get({name: 'playlists_featured', path: '/api/playlists/featured'}, playlistRoutes.featured);
 server.get({name: 'playlists_tracks', path: '/api/playlists/:playlist/tracks'}, playlistRoutes.tracks);
