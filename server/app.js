@@ -2,6 +2,9 @@
  *
  * @author Catalin Manolescu <cc.manolescu@gmail.com>
  */
+require('dotenv').config({
+    path:"./.env"
+});
 var restify = require('restify');
 fs = require('fs');
 var RDFLocal = require('./clients/RDFLocal');
