@@ -93,6 +93,8 @@ var searchPlaylists = function(req, res, next) {
         return searchPlaylistsByArtist(req,res,next);
     } else if (req.query.mood) {
         return searchPlaylistsByMood(req, res, next);
+    } else if (req.query.genre) {
+        return searchPlaylistsByGenre(req, res, next);
     }
 
     return next();
@@ -116,6 +118,21 @@ var searchPlaylistsByArtist = function(req, res, next) {
 var searchPlaylistsByMood = function(req, res, next) {
     var limit = req.params.limit ? req.params.limit : 10;
     var url = config.base_url + 'api/Playlists/GetByMoodAndDecade?mood=' + req.query.mood + '&decade=' + req.query.decade + '&limit=' + limit;
+    request.get({
+        url: url
+    }, function (error, response, body) {
+        if (error) {
+            res.send(500,{error:error});
+        } else {
+            res.send(body);
+        }
+    });
+
+    return next();
+};
+var searchPlaylistsByGenre = function(req, res, next) {
+    var limit = req.params.limit ? req.params.limit : 10;
+    var url = config.base_url + 'api/Playlists/GetByGenre?genre=' + req.query.genre + '&limit=' + limit;
     request.get({
         url: url
     }, function (error, response, body) {
