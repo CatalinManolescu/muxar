@@ -120,7 +120,7 @@ var playlistTracks = function(playlistId, limit, offset, callback) {
             doCallback(err);
             return;
         }
-        spotify.client.getPlaylistTracks('spotify', playlistId, {limit: limit, offset: 0}).then(function (data) {
+        spotify.client.getPlaylistTracks('spotify', playlistId, {limit: limit, offset: offset}).then(function (data) {
             doCallback(null, parseTracks(data.body.items));
         }, function (err) {
             doCallback(err);
