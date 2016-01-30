@@ -1,8 +1,9 @@
 'use strict';
 
 var React = require ('react');
-var pubsub = require('pubsub-js');
 var RecList = require('./recList')
+var hack = require('./searchHack');
+var SongsApi = require('../api/songsApi');
 
 var Recommendations = React.createClass({
 	getInitialState: function() {
@@ -12,32 +13,17 @@ var Recommendations = React.createClass({
 	},
 
 	componentDidMount: function(){
-
-		//this.state.artists=this.props.params;
-		console.log("here");
-		console.log(this.props.params);
-		console.log(this.state.artists);
+		var self = this;
+		SongsApi.firstSearchByArtist(hack.getSearch(), function(response){
+			self.setState({ artists: response });
+		});
 	},
 
-	componentWillMount: function() {
-	    this.pubsub_token = pubsub.subscribe('artists', function(topic, artists) {
-	      console.log('event artists: ');
-	      console.log(artists);
-	      this.setState({ artists: artists });
-	    }.bind(this));
-  },
-
-  componentWillUnmount: function() {
-    	pubsub.unsubscribe(this.pubsub_token);
-  },
-
 	render: function(){
-		console.log("render");
-		console.log(this.props.params);
 		return (
-        <div className="recBox">
-			<RecList rec={this.state.artists}/>
-        </div>
+	        <div className="recBox">
+				<RecList rec={this.state.artists}/>
+	        </div>
 		);
 	}
 });

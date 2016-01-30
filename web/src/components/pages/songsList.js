@@ -7,12 +7,14 @@ var SongsList = React.createClass({
 		songs: React.PropTypes.array.isRequired
 	},
 
+
 	render: function() {
 		var createSongsRow = function(song) {
 			return (
 				<tr key={song.id}>
-					<td className="songCell">{song.title}</td>
-					<td className="songCelltwo">{song.artist_name}</td>
+					<td><img src={song.album.image.url} className="imageCell"/></td>
+					<td className="songCell">{song.name}</td>
+					<td className="songCelltwo">{song.artists[0].name}</td>
 				</tr>
 			);
 		};
@@ -21,6 +23,7 @@ var SongsList = React.createClass({
 			<div>
 				<table >
 					<thead>
+						<th className="imageCell"></th>
 						<th className="songCell m">Title</th>
 						<th className="songCelltwo">Artist</th>
 					</thead>

@@ -13,7 +13,12 @@ var MyMusic = React.createClass({
 
 	componentDidMount: function() {
 		if (this.isMounted()) {
-			this.setState({ songs: SongsApi.getAllMySongs()});
+			var self=this;
+			SongsApi.getPopularPlaylist(function(response){
+				self.setState({ songs: response.tracks });
+				console.log("daaaata");
+				console.log(response);
+			});
 		}
 	},
 

@@ -24,7 +24,7 @@ var SongsApi = {
 	 	$.ajax({
 	    	url: "http://localhost/api/genres"
 	    }).then(function(data) {
-	    	console.log(data);
+	    	//console.log(data);
 	    	callback(data);
 	    });
  	},
@@ -32,6 +32,33 @@ var SongsApi = {
  	firstSearchByArtist: function(artist, callback){
  		$.ajax({
 	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    }).then(function(data) {
+	    	console.log(data);
+	    	callback(data);
+	    });
+ 	},
+
+ 	secondSearchByArtist: function(artist, callback){
+ 		$.ajax({
+	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    }).then(function(data) {
+	    	console.log(data);
+	    	callback(data);
+	    });
+ 	},
+
+ 	getPlaylistByMood: function(mood, callback){
+ 		$.ajax({
+	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    }).then(function(data) {
+	    	console.log(data);
+	    	callback(data);
+	    });
+ 	},
+
+ 	 getPopularPlaylist: function(callback){
+ 		$.ajax({
+	    	url: "http://localhost/api/playlists/featured?single=true"
 	    }).then(function(data) {
 	    	console.log(data);
 	    	callback(data);
