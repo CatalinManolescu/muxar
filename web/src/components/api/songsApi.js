@@ -21,8 +21,8 @@ var SongsApi = {
  	},
 
  	getGenresList: function(callback){
-	 	$.ajax({
-	    	url: "http://localhost/api/genres"
+		$.ajax({
+	    	url: "/api/genres"
 	    }).then(function(data) {
 	    	callback(data);
 	    });
