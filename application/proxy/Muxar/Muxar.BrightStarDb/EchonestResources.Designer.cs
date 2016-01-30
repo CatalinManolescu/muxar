@@ -115,6 +115,24 @@ namespace Muxar.BrightStarDb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;genre=.
+        /// </summary>
+        internal static string GenrePath {
+            get {
+                return ResourceManager.GetString("GenrePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;type=genre-radio.
+        /// </summary>
+        internal static string GenreRadioType {
+            get {
+                return ResourceManager.GetString("GenreRadioType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to id.
         /// </summary>
         internal static string Id {

@@ -38,5 +38,17 @@ namespace Muxar.BrightStarDb.Helpers
             var uri = new Uri(uriString);
             return uri;
         }
+
+        public static Uri GeneratePlaylistByGenreUri(string genre)
+        {
+            var uriString =
+                $"{ConfigurationManager.AppSettings[EchonestEndpointUri]}{EchonestResources.PlaylistPath}" +
+                $"{ConfigurationManager.AppSettings[EchonestApiKey]}{EchonestResources.SpotifyBucket}" +
+                $"{EchonestResources.LimitPath}{EchonestResources.VarietyPath}{EchonestResources.ResultsPath}" +
+                $"{EchonestResources.GenreRadioType}{EchonestResources.TracksBucket}" +
+                $"{EchonestResources.GenrePath}{genre}";
+            var uri = new Uri(uriString);
+            return uri;
+        }
     }
 }

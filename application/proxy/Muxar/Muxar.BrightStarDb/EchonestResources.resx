@@ -135,6 +135,12 @@
   <data name="ForeignId" xml:space="preserve">
     <value>foreign_id</value>
   </data>
+  <data name="GenrePath" xml:space="preserve">
+    <value>&amp;genre=</value>
+  </data>
+  <data name="GenreRadioType" xml:space="preserve">
+    <value>&amp;type=genre-radio</value>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>id</value>
   </data>

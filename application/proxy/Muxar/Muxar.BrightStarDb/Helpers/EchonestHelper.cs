@@ -50,23 +50,30 @@ namespace Muxar.BrightStarDb.Helpers
             return response;
         }
 
-        public static IList<SongDto> CreateArtistPlaylistResponse(JObject response)
+        public static IList<SongDto> CreatePlaylistResponse(JObject response)
         {
             var result = ((response[EchonestResources.Response] as JObject)[EchonestResources.Songs] as JArray);
             var songs = new List<SongDto>();
+            if (result == null) return songs;
             foreach (var songResult in result)
             {
                 var newSong = new SongDto();
                 var song = songResult as JObject;
-                newSong.Name = song[EchonestResources.Title].ToString();
-                newSong.ArtistName = song[EchonestResources.ArtistName].ToString();
-                newSong.EchonestId = song[EchonestResources.Id].ToString();
-                newSong.ArtistEchonestId = song[EchonestResources.ArtistId].ToString();
+                newSong.Name = song[EchonestResources.Title]?.ToString();
+                newSong.ArtistName = song[EchonestResources.ArtistName]?.ToString();
+                newSong.EchonestId = song[EchonestResources.Id]?.ToString();
+                newSong.ArtistEchonestId = song[EchonestResources.ArtistId]?.ToString();
                 var trackDetails = (song[EchonestResources.Tracks] as JArray)?.First as JObject;
                 newSong.SpotifyId = trackDetails[EchonestResources.ForeignId]?.ToString();
                 songs.Add(newSong);
             }
             return songs;
+        }
+        public static async Task<JObject> GetPlaylistByGenre(string genre)
+        {
+            var uri = EchonestUriHelper.GeneratePlaylistByGenreUri(genre);
+            var response = await HttpClientHelper.GetResponseMessage(uri);
+            return response;
         }
     }
 }

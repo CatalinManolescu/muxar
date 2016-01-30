@@ -507,6 +507,27 @@
             <param name="artistName"></param>
             <returns></returns>
         </member>
+        <member name="M:Muxar.Controllers.api.PlaylistsController.GetByGenre(System.String)">
+             <summary>
+            builds a playlist starting from a given genre;
+            returns a list of songs, each with its own spotifyId
+            To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+            with each entity
+             </summary>
+             <param name="genre"></param>
+             <returns>
+             A simple example of response would be:
+            [{
+                "Id": null,
+                "SpotifyId": "spotify:track:520DbYnofadcEwvlfggev0",
+                "EchonestId": "SOPPGRU131C39A8195",
+                "Name": "Piledriver waltz",
+                "ArtistEchonestId": "ARGOA5P1187FB3647B",
+                "ArtistName": "Alex Turner",
+                "Thumbnail": null
+            }]
+             </returns>
+        </member>
         <member name="M:Muxar.Controllers.api.PlaylistsController.GetByArtist(System.String)">
              <summary>
              builds a playlist starting from the echonest id of an artist;

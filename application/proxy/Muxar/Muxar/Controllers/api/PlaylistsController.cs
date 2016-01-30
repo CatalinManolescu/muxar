@@ -17,16 +17,31 @@ namespace Muxar.Controllers.api
             echonestEndpoint = new EchonestEndpoint();
         }
 
+        /// <summary>
+        ///builds a playlist starting from a given genre;
+        ///returns a list of songs, each with its own spotifyId
+        ///To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+        ///with each entity
+        /// </summary>
+        /// <param name="genre"></param>
+        /// <returns>
+        /// A simple example of response would be:
+        ///[{
+        ///    "Id": null,
+        ///    "SpotifyId": "spotify:track:520DbYnofadcEwvlfggev0",
+        ///    "EchonestId": "SOPPGRU131C39A8195",
+        ///    "Name": "Piledriver waltz",
+        ///    "ArtistEchonestId": "ARGOA5P1187FB3647B",
+        ///    "ArtistName": "Alex Turner",
+        ///    "Thumbnail": null
+        ///}]
+        /// </returns>
         [HttpGet]
         [Route("api/Playlists/GetByGenre")]
-        public async Task<IHttpActionResult> GetByGenre(string genreLabel)
+        public async Task<IHttpActionResult> GetByGenre(string genre)
         {
-            //query echonest for artists ranked by hotttness
-            //query local db to find if already know info about artists
-            //query dbpedia to complete info about artists and store info where nedeed
-            //query echonest for playlist generation
-
-            return Ok();
+            var playlist = await echonestEndpoint.GenerateGenrePlaylist(genre);
+            return Ok(playlist);
         }
 
         /// <summary>

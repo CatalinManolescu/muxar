@@ -26,18 +26,15 @@ namespace Muxar.BrightStarDb.Endpoints
         public async Task<IList<SongDto>> GenerateArtistPlaylist(string artistUri)
         {
             var response = await EchonestHelper.GetPlaylistByArtist(artistUri);
-            var playlist = EchonestHelper.CreateArtistPlaylistResponse(response);
+            var playlist = EchonestHelper.CreatePlaylistResponse(response);
             return playlist;
         }
 
-        //public double GetArtistsHottness(string artist)
-        //{
-            
-        //}
-
-        //public double GetArtistsFamiliarity(string artist)
-        //{
-            
-        //}
+        public async Task<IList<SongDto>> GenerateGenrePlaylist(string genre)
+        {
+            var response = await EchonestHelper.GetPlaylistByGenre(genre);
+            var playlist = EchonestHelper.CreatePlaylistResponse(response);
+            return playlist;
+        }
     }
 }
