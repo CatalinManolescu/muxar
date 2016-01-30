@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
 using Muxar.BrightStarDb.Endpoints;
-using Muxar.EntitiesDto;
 
 namespace Muxar.Controllers.api
 {
@@ -25,16 +23,16 @@ namespace Muxar.Controllers.api
         /// </summary>
         /// <param name="genre"></param>
         /// <returns>
-        /// A simple example of response would be:
+        /// A simple example of response for genre=jazz would be:
         ///[{
         ///    "Id": null,
-        ///    "SpotifyId": "spotify:track:520DbYnofadcEwvlfggev0",
-        ///    "EchonestId": "SOPPGRU131C39A8195",
-        ///    "Name": "Piledriver waltz",
-        ///    "ArtistEchonestId": "ARGOA5P1187FB3647B",
-        ///    "ArtistName": "Alex Turner",
+        ///    "SpotifyId": "spotify:track:2nvISupNY503G0mKbHgbYO",
+        ///    "EchonestId": "SODRKBP13167715F0D",
+        ///    "Name": "Bluesnik",
+        ///    "ArtistEchonestId": "ARANLBO1187FB3E121",
+        ///    "ArtistName": "Jackie McLean",
         ///    "Thumbnail": null
-        ///}]
+        ///},...]
         /// </returns>
         [HttpGet]
         [Route("api/Playlists/GetByGenre")]
@@ -46,9 +44,9 @@ namespace Muxar.Controllers.api
 
         /// <summary>
         /// builds a playlist starting from the echonest id of an artist;
-        ///it resurns a list of Songs, which include spotifyId of each song.
-        ///To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
-        ///with each entity
+        /// it resurns a list of Songs, which include spotifyId of each song.
+        /// To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+        /// with each entity
         /// </summary>
         /// <param name="artistUri"></param>
         /// <returns>
@@ -71,58 +69,61 @@ namespace Muxar.Controllers.api
             return Ok(playlist);
         }
 
+        /// <summary>
+        /// given a mood and (optionally) a decade
+        /// it generates a playlist (a list of songs, each of them with both echonestSongId and spotifyId)
+        /// To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+        /// with each entity
+        /// </summary>
+        /// <param name="mood"></param>
+        /// <param name="decade"></param>
+        /// <returns>
+        /// a sample responsec can be:
+        /// [{
+        ///    "Id": null,
+        ///    "SpotifyId": "spotify:track:3hte5js2tNis6zLqiKjQQy",
+        ///    "EchonestId": "SOCWWXP146123737C1",
+        ///    "Name": "The Way You Make Me Feel",
+        ///    "ArtistEchonestId": "ARXPPEY1187FB51DF4",
+        ///    "ArtistName": "Michael Jackson",
+        ///    "Thumbnail": null
+        ///  },...]
+        /// </returns>
+        [HttpGet]
+        [Route("api/Playlists/GetByMoodAndDecade")]
+        public async Task<IHttpActionResult> GetByMoodAndDecade(string mood, string decade = "")
+        {
+            var playlist = await echonestEndpoint.GenerateMoodAndDecadePlaylist(mood, decade);
+            return Ok(playlist);
+        }
+
+        /// <summary>
+        /// an example of call would be 
+        /// api/Playlists/StartSongRadio?songEchonestId=SOEAJRB14489DDEFE4
+        /// given a song id as a seed, it generates a playlist
+        ///returns a list of songs, each with its own spotifyId
+        ///To further find if there is a resource associated in dbpedia, must call Songs/AssociateWithDbpedia
+        ///with each entity
+        /// </summary>
+        /// <param name="songEchonestId"></param>
+        /// <returns>
+        /// A sample response would be:
+        /// [{
+        ///    "Id": null,
+        ///    "SpotifyId": "spotify:track:24NkyvPgkyW7aWYrh9H1wZ",
+        ///    "EchonestId": "SONCSXR12AF72A7A7B",
+        ///    "Name": "Don't Worry Baby",
+        ///    "ArtistEchonestId": "AR2DGPY1187FB4CECF",
+        ///    "ArtistName": "The Beach Boys",
+        ///    "Thumbnail": null
+        ///  },...]
+        /// </returns>
         [HttpGet]
         [Route("api/Playlists/StartSongRadio")]
         public async Task<IHttpActionResult> StartSongRadio(string songEchonestId)
         {
-            //query echonest for playlist generation;
-            return Ok();
-        }
-
-        [HttpPost]
-        [Route("api/Playlists/Create")]
-        public async Task<IHttpActionResult> Create(string playListName, [FromBody] SongDto song)
-        {
-            //create new playlist -> owner is user;
-            //add song to local db;
-            //Add songUri to list;
-            return Ok();
-        }
-
-        [HttpPost]
-        [Route("api/Playlists/AddSong")]
-        public async Task<IHttpActionResult> AddSong(string playListUri, [FromBody] SongDto song)
-        {
-            //create new playlist -> owner is user;
-            //add song to local db if does not exist yet;
-            //Add songUri to list;
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("api/Playlists/Update")]
-        public async Task<IHttpActionResult> Update(string playlistUri, [FromBody] IList<string> songUris)
-        {
-            //get users playlist from local db;
-            //update songs uris;
-            return Ok();
-        }
-
-        [HttpDelete]
-        [Route("api/Playlists/Delete")]
-        public async Task<IHttpActionResult> Delete(string playlistUri)
-        {
-            //get users playlist from local db;
-            //delete;
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("api/Playlists/Follow")]
-        public async Task<IHttpActionResult> Follow(string playlistUri)
-        {
-            //add playlist's uri to users following list;
-            return Ok();
+            var playlist = await echonestEndpoint.GenerateSongPlaylist(songEchonestId);
+            return Ok(playlist);
         }
     }
 }

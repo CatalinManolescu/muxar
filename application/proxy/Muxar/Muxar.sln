@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxar", "Muxar\Muxar.csproj", "{E1DB7E58-ECA4-4407-A3FC-8C6673E33502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxar.Tests", "Muxar.Tests\Muxar.Tests.csproj", "{C37B7740-469F-4E06-A03C-2072A5F28B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxar.BrightStarDb", "Muxar.BrightStarDb\Muxar.BrightStarDb.csproj", "{67B50A28-2163-4591-81EA-80BCED6896C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxar.Services", "Muxar.Services\Muxar.Services.csproj", "{1DD67520-62CF-4F3D-B786-1CEE86576CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxar.EntitiesDto", "Muxar.EntitiesDto\Muxar.EntitiesDto.csproj", "{98A17F27-E627-4A2D-AF26-3E3BCED9D438}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1DB7E58-ECA4-4407-A3FC-8C6673E33502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DB7E58-ECA4-4407-A3FC-8C6673E33502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1DB7E58-ECA4-4407-A3FC-8C6673E33502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DB7E58-ECA4-4407-A3FC-8C6673E33502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C37B7740-469F-4E06-A03C-2072A5F28B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37B7740-469F-4E06-A03C-2072A5F28B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37B7740-469F-4E06-A03C-2072A5F28B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37B7740-469F-4E06-A03C-2072A5F28B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B50A28-2163-4591-81EA-80BCED6896C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B50A28-2163-4591-81EA-80BCED6896C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B50A28-2163-4591-81EA-80BCED6896C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B50A28-2163-4591-81EA-80BCED6896C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD67520-62CF-4F3D-B786-1CEE86576CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD67520-62CF-4F3D-B786-1CEE86576CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD67520-62CF-4F3D-B786-1CEE86576CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD67520-62CF-4F3D-B786-1CEE86576CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A17F27-E627-4A2D-AF26-3E3BCED9D438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A17F27-E627-4A2D-AF26-3E3BCED9D438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A17F27-E627-4A2D-AF26-3E3BCED9D438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A17F27-E627-4A2D-AF26-3E3BCED9D438}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

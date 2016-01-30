@@ -75,5 +75,19 @@ namespace Muxar.BrightStarDb.Helpers
             var response = await HttpClientHelper.GetResponseMessage(uri);
             return response;
         }
+
+        public static async Task<JObject> GetPlaylistBySong(string song)
+        {
+            var uri = EchonestUriHelper.GeneratePlaylistBySong(song);
+            var response = await HttpClientHelper.GetResponseMessage(uri);
+            return response;
+        }
+
+        public static async Task<JObject> GetPlaylistByMoodAndDecade(string mood, string decade)
+        {
+            var uri = EchonestUriHelper.GeneratePlaylistByMoodAndDecadeUri(mood, decade);
+            var response = await HttpClientHelper.GetResponseMessage(uri);
+            return response;
+        }
     }
 }
