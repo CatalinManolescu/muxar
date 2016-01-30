@@ -15,7 +15,7 @@ var Surprise = React.createClass({
 
 				<img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag-map_of_Albania.svg/2000px-Flag-map_of_Albania.svg.png" onClick={this.click.bind(this,"Albania")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_map_of_Andorra.svg/580px-Flag_map_of_Andorra.svg.png" onClick={this.click.bind(this,"Andorra")}/>
-<img className="continent" src="http://mapsof.net/uploads/static-maps/armenia_flag_map.png" onClick={this.click.bind(this,"Armenia")}/>
+<img className="continent" src="http://www.clker.com/cliparts/k/H/h/c/O/e/armenia-flag-map-md.png" onClick={this.click.bind(this,"Armenia")}/>
 <img className="continent" src="http://4.bp.blogspot.com/-S-VufcywHIk/UQIDtU7n58I/AAAAAAAAAjc/F3yxkwkmuoI/s1600/austria-flag-map-640x360.png" onClick={this.click.bind(this,"Austria")}/>
 <img className="continent" src="http://3.bp.blogspot.com/-w8BLcvPFVjk/UJwZmf5Fd6I/AAAAAAAABUM/CPLt5tuUVoc/s1600/Azerbaijan+%5B3DMap+Flag%5D%5B1.5%5D.png" onClick={this.click.bind(this,"Azerbaijan")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Flag-map_of_Belarus_(1995-2012).svg/2000px-Flag-map_of_Belarus_(1995-2012).svg.png" onClick={this.click.bind(this,"Belarus")}/>
@@ -31,9 +31,9 @@ var Surprise = React.createClass({
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_map_of_the_Republic_of_Georgia.png" onClick={this.click.bind(this,"Georgia (country)")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_map_of_Germany.svg/2000px-Flag_map_of_Germany.svg.png" onClick={this.click.bind(this,"Germany")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag-map_of_Greece_(1822-1978).svg/471px-Flag-map_of_Greece_(1822-1978).svg.png" onClick={this.click.bind(this,"Greece")}/>
-<img className="continent" src="http://mapsof.net/uploads/static-maps/hungary_flag_map.png" onClick={this.click.bind(this,"Hungary")}/>
+<img className="continent" src="http://fromsegtoint.ucoz.com/hungarian_map_flag_2.jpg" onClick={this.click.bind(this,"Hungary")}/>
 <img className="continent" src="http://thenewspaperworld.com/wp-content/uploads/2015/09/Icelandic-Map-Flag.jpg" onClick={this.click.bind(this,"Iceland")}/>
-<img className="continent" src="http://mapsof.net/uploads/static-maps/italy_flag_map.png" onClick={this.click.bind(this,"Italy")}/>
+<img className="continent" src="http://images.inmagine.com/400nwm/imagebrokerrf/imb009/imb0091296.jpg" onClick={this.click.bind(this,"Italy")}/>
 <img className="continent" src="http://thumbs.dreamstime.com/t/map-flag-latvian-republic-17437338.jpg" onClick={this.click.bind(this,"Latvia")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag-map_of_Liechtenstein.svg/305px-Flag-map_of_Liechtenstein.svg.png" onClick={this.click.bind(this,"Liechtenstein")}/>
 <img className="continent" src="https://vzemlys.files.wordpress.com/2012/01/ltfull.png" onClick={this.click.bind(this,"Lithuania")}/>
@@ -41,7 +41,7 @@ var Surprise = React.createClass({
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Moldova_map_coat.svg/496px-Moldova_map_coat.svg.png" onClick={this.click.bind(this,"Moldova")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Flag-map_of_Monaco.png" onClick={this.click.bind(this,"Monaco")}/>
 <img className="continent" src="http://travel.thetrainline-europe.com/wp-content/uploads/2014/08/Montenegro_Flag_Map1-300x300.png" onClick={this.click.bind(this,"Montenegro")}/>
-<img className="continent" src="http://mapsof.net/uploads/static-maps/netherlands_flag_map.png" onClick={this.click.bind(this,"Netherlands")}/>
+<img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Flag-map_of_the_Netherlands.svg/516px-Flag-map_of_the_Netherlands.svg.png" onClick={this.click.bind(this,"Netherlands")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_map_of_Northern_Cyprus.svg/1024px-Flag_map_of_Northern_Cyprus.svg.png" onClick={this.click.bind(this,"Northern Cyprus")}/>
 <img className="continent" src="http://2.bp.blogspot.com/-fk50207s6e4/Tv9ASP8joLI/AAAAAAAAABs/_d_f_tpeS_U/s1600/poland.png" onClick={this.click.bind(this,"Poland")}/>
 <img className="continent" src="http://www.atomoquimica.com/Mapa%20de%20Potugal%20em%20Bandeira.png" onClick={this.click.bind(this,"Portugal")}/>
