@@ -4,8 +4,12 @@ var React = require('react');
 var toastr = require('toastr');
 var SongsApi = require('../api/songsApi');
 var MoodsList = require('./moodsList');
+var Router = require('react-router');
+var hack = require('../pages/searchHack');
 
 var Mood = React.createClass({	
+	mixins: [Router.Navigation],
+
 	getInitialState: function() {
 		return {
 			moods: []
@@ -14,33 +18,22 @@ var Mood = React.createClass({
 
 	handleClick: function(index){
 		console.log(index);
-		var self = this;
-		/*switch(index){
+      	switch(index){
 			case 'Positive':
-				SongsApi.getPlaylistByMood("playful", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("playful");
 				break;
 			case 'Blue':
-				SongsApi.getPlaylistByMood("sad", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("sad");
 				break;
 			case 'Energetic':
-				SongsApi.getPlaylistByMood("energetic", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("energetic");
 				break;
 			case 'Chill':
-				SongsApi.getPlaylistByMood("calming", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("calming");
 				break;
-		}*/
+		}
+		console.log(hack.getSearch());
+		this.transitionTo('playl');
 	},
 
 	componentDidMount: function() {

@@ -13,6 +13,9 @@ var routes = (
 		<Route name="mood" handler={require("./components/pages/mood")}/>
 		<Route name="surprise" handler={require("./components/pages/surpriseMe")}/>
 		<Route name="recommendations" handler={require("./components/pages/recommendations")}/>
+		<Route name="playlist" handler={require("./components/pages/playlist")}/>
+		<Route name="playl" handler={require("./components/pages/playTwo")}/>
+		<Route name="results" handler={require("./components/pages/results")}/>
 	</Route>
 );
 

@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "browserify": "^10.2.4",
+    "dotenv": "^2.0.0",
     "flux": "^2.0.3",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
@@ -31,19 +32,6 @@
   },
   "engines": {
     "node": ">=4.2.6"
-  },
-  "config": {
-    "port": 80,
-    "path": {
-      "public": "../"
-    },
-    "spotify": {
-      "client_id": "159ab13906f441e6adb40ce028dcc698",
-      "client_secret": ""
-    },
-    "proxy": "http://54.69.89.91/Muxar/",
-    "rdf": "http://localhost:8080/openrdf-sesame/repositories/muxar_rdf",
-    "rdfUpdate": "http://localhost:8080/openrdf-workbench/repositories/muxar_rdf/update"
   },
   "scripts": {
     "postinstall": "",

@@ -1,12 +1,16 @@
 'use strict';
 
 var React = require ('react');
-var SongsApi = require('../api/songsApi');
+var hack = require('../pages/searchHack');
+var Router = require('react-router');
 
 var Surprise = React.createClass({
+	mixins: [Router.Navigation],
+
 	click: function(name){
 		console.log(name);
-		
+		hack.setSearch(name);
+		this.transitionTo('playlist');
 	},
 
 	render: function(){
@@ -37,7 +41,7 @@ var Surprise = React.createClass({
 <img className="continent" src="http://thumbs.dreamstime.com/t/map-flag-latvian-republic-17437338.jpg" onClick={this.click.bind(this,"Latvia")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag-map_of_Liechtenstein.svg/305px-Flag-map_of_Liechtenstein.svg.png" onClick={this.click.bind(this,"Liechtenstein")}/>
 <img className="continent" src="https://vzemlys.files.wordpress.com/2012/01/ltfull.png" onClick={this.click.bind(this,"Lithuania")}/>
-<img className="continent" src="http://mapsof.net/uploads/static-maps/luxembourg_flag_map.png" onClick={this.click.bind(this,"Luxembourg")}/>
+<img className="continent" src="https://c2.staticflickr.com/8/7078/7231018280_62a224b1d6.jpg" onClick={this.click.bind(this,"Luxembourg")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Moldova_map_coat.svg/496px-Moldova_map_coat.svg.png" onClick={this.click.bind(this,"Moldova")}/>
 <img className="continent" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Flag-map_of_Monaco.png" onClick={this.click.bind(this,"Monaco")}/>
 <img className="continent" src="http://travel.thetrainline-europe.com/wp-content/uploads/2014/08/Montenegro_Flag_Map1-300x300.png" onClick={this.click.bind(this,"Montenegro")}/>

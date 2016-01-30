@@ -12,7 +12,7 @@ var MoodsList = React.createClass({
 			return (
 				<div className="mood" 
 						key={mood.name}
-						onClick={this.props.click.bind(this,mood.name)}>
+						onClick={this.props.click.bind(this, mood.name)}>
 					<label className="moodSpan">{mood.name}</label>
 				</div>
 			);

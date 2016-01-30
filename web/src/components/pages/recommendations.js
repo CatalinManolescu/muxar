@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require ('react');
-var RecList = require('./recList')
+var RecList = require('./recList');
 var hack = require('./searchHack');
 var SongsApi = require('../api/songsApi');
 
