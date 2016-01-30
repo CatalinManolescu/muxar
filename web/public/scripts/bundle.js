@@ -40140,7 +40140,7 @@ $ = jQuery = require('jquery');
 
 var doParse= function(item){
 	return JSON.parse(JSON.stringify(item));
-}
+};
 
 var SongsApi = {
 	getAllMySongs: function() {
@@ -40156,23 +40156,22 @@ var SongsApi = {
 	 	$.ajax({
 	    	url: "http://localhost/api/genres"
 	    }).then(function(data) {
-	    	//console.log(data);
 	    	callback(data);
 	    });
  	},
 
  	firstSearchByArtist: function(artist, callback){
  		$.ajax({
-	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    	url: "/api/artists?name="+artist+"&limit=10"
 	    }).then(function(data) {
 	    	console.log(data);
-	    	callback(data);
+	    	callback(JSON.parse(data));
 	    });
  	},
 
  	secondSearchByArtist: function(artist, callback){
  		$.ajax({
-	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    	url: "/api/artists/"+artist+"/genres"
 	    }).then(function(data) {
 	    	console.log(data);
 	    	callback(data);
@@ -40180,22 +40179,43 @@ var SongsApi = {
  	},
 
  	getPlaylistByMood: function(mood, callback){
+ 		console.log('gigel');
  		$.ajax({
-	    	url: "http://localhost/api/artists?name="+artist+"&limit=10"
+	    	url: "/api/playlists?mood="+mood
+	    }).then(function(data) {
+	    	console.log(mood);
+	    	console.log(data);
+	    	callback(JSON.parse(data));
+	    });
+ 	},
+
+ 	 getPopularPlaylist: function(callback){
+ 		$.ajax({
+	    	url: "/api/playlists/featured?single=true"
 	    }).then(function(data) {
 	    	console.log(data);
 	    	callback(data);
 	    });
  	},
 
- 	 getPopularPlaylist: function(callback){
+ 	getPlaylistByCountry: function(country, callback){
  		$.ajax({
-	    	url: "http://localhost/api/playlists/featured?single=true"
+	    	url: "/api/regions?country="+country
 	    }).then(function(data) {
 	    	console.log(data);
-	    	callback(data);
+	    	callback(JSON.parse(data));
+	    });
+ 	},
+
+ 	 getPlaylistByGenre: function(genre, callback){
+ 		$.ajax({
+	    	url: "/api/playlists?genre="+genre
+	    }).then(function(data) {
+	    	console.log(data);
+	    	callback(JSON.parse(data));
 	    });
  	}
+
 };
 
 module.exports = SongsApi;
@@ -40273,7 +40293,7 @@ var Header = React.createClass({displayName: "Header",
 });
 
 module.exports = Header;
-},{"../api/songsApi":235,"../pages/searchForm":247,"../pages/searchHack":248,"react":217,"react-router":47,"toastr":230}],238:[function(require,module,exports){
+},{"../api/songsApi":235,"../pages/searchForm":252,"../pages/searchHack":253,"react":217,"react-router":47,"toastr":230}],238:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -40397,8 +40417,12 @@ var React = require('react');
 var toastr = require('toastr');
 var SongsApi = require('../api/songsApi');
 var MoodsList = require('./moodsList');
+var Router = require('react-router');
+var hack = require('../pages/searchHack');
 
 var Mood = React.createClass({displayName: "Mood",	
+	mixins: [Router.Navigation],
+
 	getInitialState: function() {
 		return {
 			moods: []
@@ -40407,33 +40431,22 @@ var Mood = React.createClass({displayName: "Mood",
 
 	handleClick: function(index){
 		console.log(index);
-		var self = this;
-		/*switch(index){
+      	switch(index){
 			case 'Positive':
-				SongsApi.getPlaylistByMood("playful", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("playful");
 				break;
 			case 'Blue':
-				SongsApi.getPlaylistByMood("sad", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("sad");
 				break;
 			case 'Energetic':
-				SongsApi.getPlaylistByMood("energetic", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("energetic");
 				break;
 			case 'Chill':
-				SongsApi.getPlaylistByMood("calming", function(response){
-		            self.transitionTo('playlists', {playlist: response});
-		            pubsub.publish('playlists', response);
-		          });
+				hack.setSearch("calming");
 				break;
-		}*/
+		}
+		console.log(hack.getSearch());
+		this.transitionTo('playl');
 	},
 
 	componentDidMount: function() {
@@ -40453,7 +40466,7 @@ var Mood = React.createClass({displayName: "Mood",
 
 module.exports = Mood;
 
-},{"../api/songsApi":235,"./moodsList":243,"react":217,"toastr":230}],243:[function(require,module,exports){
+},{"../api/songsApi":235,"../pages/searchHack":253,"./moodsList":243,"react":217,"react-router":47,"toastr":230}],243:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -40468,7 +40481,7 @@ var MoodsList = React.createClass({displayName: "MoodsList",
 			return (
 				React.createElement("div", {className: "mood", 
 						key: mood.name, 
-						onClick: this.props.click.bind(this,mood.name)}, 
+						onClick: this.props.click.bind(this, mood.name)}, 
 					React.createElement("label", {className: "moodSpan"}, mood.name)
 				)
 			);
@@ -40520,7 +40533,142 @@ var MyMusic = React.createClass({displayName: "MyMusic",
 
 module.exports = MyMusic;
 
-},{"../api/songsApi":235,"./songsList":249,"react":217}],245:[function(require,module,exports){
+},{"../api/songsApi":235,"./songsList":254,"react":217}],245:[function(require,module,exports){
+'use strict';
+
+var React = require ("react");
+var hack = require('./searchHack');
+var SongsApi = require('../api/songsApi');
+var PlaylistList = require('./playTwoList');
+
+var PlayTwo = React.createClass({displayName: "PlayTwo",
+	getInitialState: function() {
+		return {
+			playtwo: []
+		};
+	},
+
+	componentDidMount: function() {
+		if (this.isMounted()) {
+			var self = this;
+			console.log('traznea');
+			SongsApi.getPlaylistByMood(hack.getSearch(), function(response){
+				self.setState({ playtwo: response });
+				console.log("play");
+				console.log(response);
+			});
+		}
+	},
+
+	render: function(){
+		return (
+	        React.createElement("div", {className: "playBox"}, 
+				React.createElement(PlaylistList, {playlist: this.state.playtwo})
+	        )
+		);
+	}
+});
+
+module.exports = PlayTwo;
+
+},{"../api/songsApi":235,"./playTwoList":246,"./searchHack":253,"react":217}],246:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var PlayTwoList = React.createClass({displayName: "PlayTwoList",
+	propTypes: {
+		playlist: React.PropTypes.array.isRequired
+	},
+
+	render: function() {
+		var createBox = function(play) {
+			return (
+				React.createElement("div", {className: "playItem"}, 
+					React.createElement("div", {className: "playImageHolder"}, React.createElement("img", {src: play.Thumbnail, className: "playThumbnail"})), 
+					React.createElement("label", {className: "playLabel"}, play.Name, "-", play.ArtistName)
+				)
+			);
+		};
+
+		return (
+			React.createElement("div", null, 
+				this.props.playlist.map(createBox, this)
+			)
+		);
+	}
+});
+
+module.exports = PlayTwoList;
+
+},{"react":217}],247:[function(require,module,exports){
+'use strict';
+
+var React = require ("react");
+var hack = require('./searchHack');
+var SongsApi = require('../api/songsApi');
+var PlaylistList = require('./playlistList');
+
+var Playlist = React.createClass({displayName: "Playlist",
+	getInitialState: function() {
+		return {
+			playlist: []
+		};
+	},
+
+	componentDidMount: function() {
+		if (this.isMounted()) {
+			var self = this;
+			SongsApi.getPlaylistByCountry(hack.getSearch(), function(response){
+				self.setState({ playlist: response });
+				console.log("play");
+				console.log(response);
+			});
+		}
+	},
+
+	render: function(){
+		return (
+	        React.createElement("div", {className: "playBox"}, 
+				React.createElement(PlaylistList, {playlist: this.state.playlist})
+	        )
+		);
+	}
+});
+
+module.exports = Playlist;
+
+},{"../api/songsApi":235,"./playlistList":248,"./searchHack":253,"react":217}],248:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var PlaylistList = React.createClass({displayName: "PlaylistList",
+	propTypes: {
+		playlist: React.PropTypes.array.isRequired
+	},
+
+	render: function() {
+		var createBox = function(play) {
+			return (
+				React.createElement("div", {className: "playItem"}, 
+					React.createElement("div", {className: "playImageHolder"}, React.createElement("img", {src: play.Thumbnail, className: "playThumbnail"})), 
+					React.createElement("label", {className: "playLabel"}, play.Name)
+				)
+			);
+		};
+
+		return (
+			React.createElement("div", null, 
+				this.props.playlist.map(createBox, this)
+			)
+		);
+	}
+});
+
+module.exports = PlaylistList;
+
+},{"react":217}],249:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -40547,11 +40695,11 @@ var RecList = React.createClass({displayName: "RecList",
 
 module.exports = RecList;
 
-},{"react":217}],246:[function(require,module,exports){
+},{"react":217}],250:[function(require,module,exports){
 'use strict';
 
 var React = require ('react');
-var RecList = require('./recList')
+var RecList = require('./recList');
 var hack = require('./searchHack');
 var SongsApi = require('../api/songsApi');
 
@@ -40580,7 +40728,44 @@ var Recommendations = React.createClass({displayName: "Recommendations",
 
 module.exports = Recommendations;
 
-},{"../api/songsApi":235,"./recList":245,"./searchHack":248,"react":217}],247:[function(require,module,exports){
+},{"../api/songsApi":235,"./recList":249,"./searchHack":253,"react":217}],251:[function(require,module,exports){
+'use strict';
+
+var React = require ("react");
+var hack = require('./searchHack');
+var SongsApi = require('../api/songsApi');
+var PlaylistList = require('./playTwoList');
+
+var Results = React.createClass({displayName: "Results",
+	getInitialState: function() {
+		return {
+			results: []
+		};
+	},
+
+	componentDidMount: function() {
+		if (this.isMounted()) {
+			var self = this;
+			SongsApi.getPlaylistByGenre(hack.getSearch(), function(response){
+				self.setState({ results: response });
+				console.log("play2");
+				console.log(response);
+			});
+		}
+	},
+
+	render: function(){
+		return (
+	        React.createElement("div", {className: "playBox"}, 
+				React.createElement(PlaylistList, {playlist: this.state.results})
+	        )
+		);
+	}
+});
+
+module.exports = Results;
+
+},{"../api/songsApi":235,"./playTwoList":246,"./searchHack":253,"react":217}],252:[function(require,module,exports){
 'use strict';
 
 var React = require("react");
@@ -40603,7 +40788,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
 
 module.exports = SearchForm;
 
-},{"react":217}],248:[function(require,module,exports){
+},{"react":217}],253:[function(require,module,exports){
 "use strict";
 
 var SearchHack = {
@@ -40618,7 +40803,7 @@ var SearchHack = {
 
 module.exports = SearchHack;
 
-},{}],249:[function(require,module,exports){
+},{}],254:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -40659,25 +40844,28 @@ var SongsList = React.createClass({displayName: "SongsList",
 
 module.exports = SongsList;
 
-},{"react":217}],250:[function(require,module,exports){
+},{"react":217}],255:[function(require,module,exports){
 'use strict';
 
 var React = require ('react');
-var SongsApi = require('../api/songsApi');
+var hack = require('../pages/searchHack');
+var Router = require('react-router');
 
 var Surprise = React.createClass({displayName: "Surprise",
+	mixins: [Router.Navigation],
+
 	click: function(name){
 		console.log(name);
-		
+		hack.setSearch(name);
+		this.transitionTo('playlist');
 	},
 
 	render: function(){
 		return (
 	        React.createElement("div", {className: "surpriseBox"}, 
 
-				React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag-map_of_Albania.svg/2000px-Flag-map_of_Albania.svg.png", onClick: this.click.bind(this,"Albania")}), 
+React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag-map_of_Albania.svg/2000px-Flag-map_of_Albania.svg.png", onClick: this.click.bind(this,"Albania")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_map_of_Andorra.svg/580px-Flag_map_of_Andorra.svg.png", onClick: this.click.bind(this,"Andorra")}), 
-React.createElement("img", {className: "continent", src: "http://mapsof.net/uploads/static-maps/armenia_flag_map.png", onClick: this.click.bind(this,"Armenia")}), 
 React.createElement("img", {className: "continent", src: "http://4.bp.blogspot.com/-S-VufcywHIk/UQIDtU7n58I/AAAAAAAAAjc/F3yxkwkmuoI/s1600/austria-flag-map-640x360.png", onClick: this.click.bind(this,"Austria")}), 
 React.createElement("img", {className: "continent", src: "http://3.bp.blogspot.com/-w8BLcvPFVjk/UJwZmf5Fd6I/AAAAAAAABUM/CPLt5tuUVoc/s1600/Azerbaijan+%5B3DMap+Flag%5D%5B1.5%5D.png", onClick: this.click.bind(this,"Azerbaijan")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Flag-map_of_Belarus_(1995-2012).svg/2000px-Flag-map_of_Belarus_(1995-2012).svg.png", onClick: this.click.bind(this,"Belarus")}), 
@@ -40693,17 +40881,13 @@ React.createElement("img", {className: "continent", src: "http://testdenationali
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_map_of_the_Republic_of_Georgia.png", onClick: this.click.bind(this,"Georgia (country)")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_map_of_Germany.svg/2000px-Flag_map_of_Germany.svg.png", onClick: this.click.bind(this,"Germany")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag-map_of_Greece_(1822-1978).svg/471px-Flag-map_of_Greece_(1822-1978).svg.png", onClick: this.click.bind(this,"Greece")}), 
-React.createElement("img", {className: "continent", src: "http://mapsof.net/uploads/static-maps/hungary_flag_map.png", onClick: this.click.bind(this,"Hungary")}), 
 React.createElement("img", {className: "continent", src: "http://thenewspaperworld.com/wp-content/uploads/2015/09/Icelandic-Map-Flag.jpg", onClick: this.click.bind(this,"Iceland")}), 
-React.createElement("img", {className: "continent", src: "http://mapsof.net/uploads/static-maps/italy_flag_map.png", onClick: this.click.bind(this,"Italy")}), 
 React.createElement("img", {className: "continent", src: "http://thumbs.dreamstime.com/t/map-flag-latvian-republic-17437338.jpg", onClick: this.click.bind(this,"Latvia")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag-map_of_Liechtenstein.svg/305px-Flag-map_of_Liechtenstein.svg.png", onClick: this.click.bind(this,"Liechtenstein")}), 
 React.createElement("img", {className: "continent", src: "https://vzemlys.files.wordpress.com/2012/01/ltfull.png", onClick: this.click.bind(this,"Lithuania")}), 
-React.createElement("img", {className: "continent", src: "http://mapsof.net/uploads/static-maps/luxembourg_flag_map.png", onClick: this.click.bind(this,"Luxembourg")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Moldova_map_coat.svg/496px-Moldova_map_coat.svg.png", onClick: this.click.bind(this,"Moldova")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/8/82/Flag-map_of_Monaco.png", onClick: this.click.bind(this,"Monaco")}), 
 React.createElement("img", {className: "continent", src: "http://travel.thetrainline-europe.com/wp-content/uploads/2014/08/Montenegro_Flag_Map1-300x300.png", onClick: this.click.bind(this,"Montenegro")}), 
-React.createElement("img", {className: "continent", src: "http://mapsof.net/uploads/static-maps/netherlands_flag_map.png", onClick: this.click.bind(this,"Netherlands")}), 
 React.createElement("img", {className: "continent", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_map_of_Northern_Cyprus.svg/1024px-Flag_map_of_Northern_Cyprus.svg.png", onClick: this.click.bind(this,"Northern Cyprus")}), 
 React.createElement("img", {className: "continent", src: "http://2.bp.blogspot.com/-fk50207s6e4/Tv9ASP8joLI/AAAAAAAAABs/_d_f_tpeS_U/s1600/poland.png", onClick: this.click.bind(this,"Poland")}), 
 React.createElement("img", {className: "continent", src: "http://www.atomoquimica.com/Mapa%20de%20Potugal%20em%20Bandeira.png", onClick: this.click.bind(this,"Portugal")}), 
@@ -40728,7 +40912,7 @@ React.createElement("img", {className: "continent", src: "https://soulhealingang
 
 module.exports = Surprise;
 
-},{"../api/songsApi":235,"react":217}],251:[function(require,module,exports){
+},{"../pages/searchHack":253,"react":217,"react-router":47}],256:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -40743,7 +40927,7 @@ Router.run(routes, Router.HistoryLocation, function(Handler){
 	React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":252,"react":217,"react-router":47}],252:[function(require,module,exports){
+},{"./routes":257,"react":217,"react-router":47}],257:[function(require,module,exports){
 'use strict';
 
 var React = require ('react');
@@ -40758,10 +40942,13 @@ var routes = (
 		React.createElement(DefaultRoute, {handler: require("./components/pages/genres")}), 
 		React.createElement(Route, {name: "mood", handler: require("./components/pages/mood")}), 
 		React.createElement(Route, {name: "surprise", handler: require("./components/pages/surpriseMe")}), 
-		React.createElement(Route, {name: "recommendations", handler: require("./components/pages/recommendations")})
+		React.createElement(Route, {name: "recommendations", handler: require("./components/pages/recommendations")}), 
+		React.createElement(Route, {name: "playlist", handler: require("./components/pages/playlist")}), 
+		React.createElement(Route, {name: "playl", handler: require("./components/pages/playTwo")}), 
+		React.createElement(Route, {name: "results", handler: require("./components/pages/results")})
 	)
 );
 
 module.exports = routes;
 
-},{"./components/pages/app":239,"./components/pages/genres":240,"./components/pages/mood":242,"./components/pages/recommendations":246,"./components/pages/surpriseMe":250,"react":217,"react-router":47}]},{},[251]);
+},{"./components/pages/app":239,"./components/pages/genres":240,"./components/pages/mood":242,"./components/pages/playTwo":245,"./components/pages/playlist":247,"./components/pages/recommendations":250,"./components/pages/results":251,"./components/pages/surpriseMe":255,"react":217,"react-router":47}]},{},[256]);

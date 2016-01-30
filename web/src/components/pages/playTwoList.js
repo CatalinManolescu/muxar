@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var PlaylistList = React.createClass({
+var PlayTwoList = React.createClass({
 	propTypes: {
 		playlist: React.PropTypes.array.isRequired
 	},
@@ -12,7 +12,7 @@ var PlaylistList = React.createClass({
 			return (
 				<div className="playItem">
 					<div className="playImageHolder"><img src={play.Thumbnail} className="playThumbnail"/></div>
-					<label className="playLabel">{play.Name}</label>
+					<label className="playLabel">{play.Name}-{play.ArtistName}</label>
 				</div>
 			);
 		};
@@ -25,4 +25,4 @@ var PlaylistList = React.createClass({
 	}
 });
 
-module.exports = PlaylistList;
+module.exports = PlayTwoList;

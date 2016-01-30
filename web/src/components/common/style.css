@@ -59,7 +59,7 @@ button{
 
 .content{
 	height: 88vh;
-	width: 80%;
+	width: 77%;
 	float:left;
 	background-image: url('https://s-media-cache-ak0.pinimg.com/originals/5e/a7/d0/5ea7d0297aaa9d88282db02a6149297d.jpg');
 	background-repeat: no-repeat;
@@ -246,7 +246,7 @@ button{
 
 .popular{
 	position: absolute;
-	right: -45px;
+	right: -43px;
 	top: 45%;
 	-webkit-transform: rotate(-90deg);  /* to support Safari and Android browser */
     -ms-transform: rotate(-90deg);      /* to support IE 9 */
@@ -272,20 +272,20 @@ button{
 }
 
 .surpriseBox{
-	width: 65%;
+	width: 70%;
 	height: 65vh;
-	margin-left: 25%;
-	margin-top: 12vh;
+	margin-left: 22%;
+	margin-top: 8vh;
 	position: relative;
 }
 
 .continent{
 	width: 12%;
-	height: 15%;
+	height: 17%;
 	float: left;
 	margin-top: 1%;
 	margin-left: 1%;
-	border: 1px solid rgb(200,200,200);
+	//border: 1px solid rgb(200,200,200);
 	box-shadow: 0px 0px 0px 15px white inset;
 	border-radius: 20px;
 	-webkit-transition-duration: 0.5s; /* Safari */
@@ -299,7 +299,7 @@ button{
 }
 
 .imageCell{
-	width: 30px;
+	width: 50px;
 	border-top: 1px solid rgb(77,77,77);
 	border-right: 1px solid rgb(77,77,77);
 }
@@ -323,7 +323,7 @@ button{
 
 .myMusic{
 	height: 88vh;
-	width: 20%;
+	width: 23%;
 	float:left;
 	background-color: rgb(25,25,25);
 	-webkit-box-shadow: inset 0px -14px 74px 3px rgba(0,0,0,0.75);
@@ -333,4 +333,59 @@ button{
 	overflow-x: hidden; 
 	padding-left: 5px;
 	font-size: 12px;
+}
+
+.playItem{
+	width: 23%;
+	min-height: 30vh;
+	max-height: 30vh;
+	float: left;
+	margin-top: 1%;
+	margin-left: 1%;
+	border: 1px solid rgb(200,200,200);
+	border-radius: 7px;
+    overflow: hidden;
+    position:relative;
+    background-color: rgb(230,230,230);
+}
+
+.playThumbnail{
+	width: 100%;
+}
+
+.playLabel{
+	width: 100%;
+	height: 15vh;
+	float: left;
+	background-color: rgb(230,230,230);
+	color: rgb(77,77,77);
+	margin-left: 3%;
+}
+
+.playBox{
+	width: 75%;
+	height: 77vh;
+	margin-left: 20%;
+	margin-top: 5vh;
+	overflow-y: scroll; 
+	overflow-x: hidden;	
+	position: relative;
+}
+
+.playImageHolder{
+	margin-left: 5%;
+	margin-top: 1vh;
+	width: 90%;
+	height: 23vh;
+	float: left;
+	overflow: hidden;
+	background-image: url('http://54.69.89.91/Muxar/Content/background.png');
+    background-size: 100% ;
+    background-repeat: no-repeat;
+}
+
+.middle{
+	margin-left: 40%;
+	font-weight: bold;
+	color: rgb(80,80,80);
 }

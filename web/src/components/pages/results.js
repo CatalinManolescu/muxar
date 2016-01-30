@@ -3,21 +3,21 @@
 var React = require ("react");
 var hack = require('./searchHack');
 var SongsApi = require('../api/songsApi');
-var PlaylistList = require('./playlistList');
+var PlaylistList = require('./playTwoList');
 
-var Playlist = React.createClass({
+var Results = React.createClass({
 	getInitialState: function() {
 		return {
-			playlist: []
+			results: []
 		};
 	},
 
 	componentDidMount: function() {
 		if (this.isMounted()) {
 			var self = this;
-			SongsApi.getPlaylistByCountry(hack.getSearch(), function(response){
-				self.setState({ playlist: response });
-				console.log("play");
+			SongsApi.getPlaylistByGenre(hack.getSearch(), function(response){
+				self.setState({ results: response });
+				console.log("play2");
 				console.log(response);
 			});
 		}
@@ -26,10 +26,10 @@ var Playlist = React.createClass({
 	render: function(){
 		return (
 	        <div className="playBox">
-				<PlaylistList playlist={this.state.playlist} />
+				<PlaylistList playlist={this.state.results} />
 	        </div>
 		);
 	}
 });
 
-module.exports = Playlist;
+module.exports = Results;
