@@ -39,7 +39,7 @@
     },
     "spotify": {
       "client_id": "159ab13906f441e6adb40ce028dcc698",
-      "client_secret": "b0bd6a1ee6ac4d39becd6043d95f8eb3"
+      "client_secret": ""
     },
     "proxy": "http://54.69.89.91/Muxar/",
     "rdf": "http://localhost:8080/openrdf-sesame/repositories/muxar_rdf",
